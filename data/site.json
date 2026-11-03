@@ -1,0 +1,30 @@
+{
+  "istatistik": {
+    "proje": 3,
+    "uye": 54,
+    "kurucu": 4,
+    "etkinlik": 1,
+    "bursiyer": 7
+  },
+  "burs": {
+    "donem": "2026 güz dönemi",
+    "hedef": 20,
+    "tutar": 3000
+  },
+  "etkinlikler": [
+    {
+      "baslik": "Öğrenci Buluşması",
+      "tarih": "2026-11-14",
+      "saat": "18:00",
+      "yer": "Yer duyurulacak",
+      "aciklama": "Öğrencilerle üyelerin tanıştığı buluşma. Yer ve program netleşince bu sayfada duyurulur."
+    },
+    {
+      "baslik": "Kariyer Sohbeti",
+      "tarih": "2026-12-05",
+      "saat": "19:30",
+      "yer": "Yer duyurulacak",
+      "aciklama": "Üyelerimizin ve konuklarımızın katılımıyla, öğrencilere yönelik bir sohbet etkinliği."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Etkinlikler · Kızılanka</title>
+<meta name="description" content="Öğrencilerle üyeleri bir araya getiren Kızılanka etkinlikleri. Yaklaşan ve geçmiş etkinlikler bu sayfada.">
+<meta property="og:title" content="Etkinlikler · Kızılanka">
+<meta property="og:description" content="Öğrencilerle üyeleri bir araya getiren Kızılanka etkinlikleri. Yaklaşan ve geçmiş etkinlikler bu sayfada.">
+<meta property="og:image" content="https://www.kizilanka.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#faf7f2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kızılanka">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="https://kizilanka.com/assets/mark.png">
+<link rel="apple-touch-icon" href="https://kizilanka.com/assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body data-page="etkinlikler">
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow fade-up">Etkinlikler</div>
+    <h1>
+      <span class="line"><span>Etkinliklerde</span></span>
+      <span class="line"><span><span class="hl">buluşalım</span></span></span>
+    </h1>
+    <p class="lead fade-up" style="animation-delay:.5s">Öğrencilerle üyeleri bir araya getiren etkinlikler düzenliyoruz. Her yeni etkinliği önce bu sayfada duyururuz; gelmeni çok isteriz.</p>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="Etkinlik listesi" data-tabs>
+      <span class="pill" aria-hidden="true"></span>
+      <button type="button" role="tab" id="t-up" aria-controls="p-up" aria-selected="true">Yaklaşan</button>
+      <button type="button" role="tab" id="t-past" aria-controls="p-past" aria-selected="false" tabindex="-1">Geçmiş</button>
+    </div>
+
+    <!-- Etkinlikler data/site.json → etkinlikler listesinden gelir; tarihi geçenler otomatik "Geçmiş" sekmesine taşınır -->
+    <div class="tab-panel grid-2" id="p-up" role="tabpanel" aria-labelledby="t-up" data-events="up">
+      <article class="event reveal">
+        <div class="date"><b>14</b><small>KAS 2026</small></div>
+        <div>
+          <span class="tag live">Yaklaşan</span>
+          <h3>Öğrenci Buluşması</h3>
+          <p>Öğrencilerle üyelerin tanıştığı buluşma. Yer ve program netleşince bu sayfada duyurulur.</p>
+          <div class="meta"><span>Saat 18:00</span><span>Yer duyurulacak</span></div>
+        </div>
+      </article>
+      <article class="event reveal" data-d="1">
+        <div class="date"><b>5</b><small>ARA 2026</small></div>
+        <div>
+          <span class="tag live">Yaklaşan</span>
+          <h3>Kariyer Sohbeti</h3>
+          <p>Üyelerimizin ve konuklarımızın katılımıyla, öğrencilere yönelik bir sohbet etkinliği.</p>
+          <div class="meta"><span>Saat 19:30</span><span>Yer duyurulacak</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tab-panel" id="p-past" role="tabpanel" aria-labelledby="t-past" data-events="past" hidden>
+      <div class="empty">Geçmiş etkinlikler burada listelenecek.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div class="dark-box inner reveal">
+      <div>
+        <h2>Etkinliklerden <em>ilk sen</em> haberdar ol</h2>
+        <p>Topluluğumuzun üyeleri etkinlik duyurularına öncelikli ulaşır.</p>
+      </div>
+      <a class="btn btn-white magnetic" href="uye-ol.html">Aramıza katıl <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="js/main.js?v=3" defer></script>
+</body>
+</html>
