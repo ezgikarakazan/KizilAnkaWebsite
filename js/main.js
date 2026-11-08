@@ -246,6 +246,17 @@
       const v = pick(data, n.dataset.bindFill);
       if (v != null) n.dataset.fill = v;
     });
+    // Kart ile bağış: Fonzip bağış sayfası linki girilince seçenek açılır
+    const kart = pick(data, 'bagis.kartLinki');
+    if (typeof kart === 'string' && /^https:\/\//.test(kart)) {
+      document.querySelectorAll('[data-card-link]').forEach(a => (a.href = kart));
+      document.querySelectorAll('[data-card-option]').forEach(l => {
+        l.classList.remove('soon');
+        l.querySelector('input').disabled = false;
+        l.querySelector('small')?.remove();
+      });
+      document.querySelectorAll('[data-card-hint]').forEach(h => (h.textContent = 'Kartla bağış, Fonzip üzerinden açılan güvenli ödeme sayfasında alınır. Kart bilgilerin bu siteye girilmez.'));
+    }
     if (Array.isArray(data.etkinlikler)) {
       const n = new Date(), today = `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
       const evs = data.etkinlikler.filter(e => e && e.baslik && /^\d{4}-\d{2}-\d{2}$/.test(e.tarih));

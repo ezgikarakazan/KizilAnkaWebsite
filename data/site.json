@@ -11,6 +11,9 @@
     "hedef": 20,
     "tutar": 3000
   },
+  "bagis": {
+    "kartLinki": ""
+  },
   "etkinlikler": [
     {
       "baslik": "Öğrenci Buluşması",

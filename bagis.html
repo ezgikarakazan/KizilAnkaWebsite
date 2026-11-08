@@ -110,10 +110,10 @@
         <label>Ödeme şekli</label>
         <div class="seg">
           <label><input type="radio" name="odeme_yontemi" value="havale" checked><span>Banka havalesi</span></label>
-          <!-- Kart ile ödeme iyzico entegrasyonu tamamlanınca açılacak: disabled'ı kaldır, alttaki hint metnini geri getir -->
-          <label class="soon"><input type="radio" name="odeme_yontemi" value="kart" disabled><span>Kart ile<small>Yakında</small></span></label>
+          <!-- Kart ile bağış: data/site.json → bagis.kartLinki doldurulunca (Fonzip bağış sayfası) kendiliğinden açılır -->
+          <label class="soon" data-card-option><input type="radio" name="odeme_yontemi" value="kart" disabled><span>Kart ile<small>Yakında</small></span></label>
         </div>
-        <span class="hint">Kartla bağış çok yakında. Şimdilik bağışını yukarıdaki hesaplara havale ile yapabilirsin.</span>
+        <span class="hint" data-card-hint>Kartla bağış çok yakında. Şimdilik bağışını yukarıdaki hesaplara havale ile yapabilirsin.</span>
       </div>
 
       <fieldset>
@@ -123,12 +123,13 @@
         <div class="field full"><label for="d-msg">Mesajın (isteğe bağlı)</label><textarea id="d-msg" name="mesaj"></textarea></div>
       </fieldset>
       <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak saklanmasını kabul ediyorum.</span></label>
-      <button class="btn btn-red btn-block" type="submit">Bildirimi gönder <span class="arrow">↗</span></button>
+      <button class="btn btn-red btn-block" type="submit" data-show="odeme_yontemi=havale">Bildirimi gönder <span class="arrow">↗</span></button>
+      <a class="btn btn-red btn-block hidden" data-show="odeme_yontemi=kart" data-card-link href="#" target="_blank" rel="noopener">Kartla bağış yap <span class="arrow">↗</span></a>
     </form>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=5" defer></script>
+<script src="js/main.js?v=6" defer></script>
 </body>
 </html>
