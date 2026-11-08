@@ -1,0 +1,9 @@
+{
+  "name": "kizilanka-site",
+  "private": true,
+  "type": "module",
+  "description": "Kızılanka sitesi. Sayfalar düz HTML; bu dosya yalnızca Netlify fonksiyonlarının bağımlılıkları için.",
+  "dependencies": {
+    "@netlify/blobs": "11.1.5"
+  }
+}

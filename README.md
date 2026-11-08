@@ -21,8 +21,15 @@ Formlar Netlify Forms'a gönderilir (Netlify paneli → Forms). Netlify'da **For
 Form adları: `uyelik`, `ogrenci-uyelik`, `burs-basvurusu`, `bagis-bildirimi`, `iletisim`.
 Yerel sunucuda (localhost) gönderim çalışmaz; yalnızca Netlify'daki sitede çalışır.
 
+## Fonzip'e otomatik aktarım
+Üyelik başvuruları (`uyelik`, `ogrenci-uyelik`) Netlify'a düştükten sonra `netlify/functions/submission-created.mjs`
+tarafından Fonzip'e kişi olarak eklenir (ad, soyad, TC, e-posta, telefon, doğum tarihi, adres, başvuru tarihi).
+Üye numarası verilmez; onay Fonzip'te yapılır. Diğer alanlar (anne/baba adı, okul, meslek, sosyal medya) Netlify Forms'ta kalır.
+Gerekli Netlify ortam değişkenleri: `FONZIP_CLIENT_ID`, `FONZIP_CLIENT_SECRET`; isteğe bağlı `FONZIP_TAG_UYELIK`, `FONZIP_TAG_OGRENCI`.
+Hatalar Netlify → Logs → Functions → `submission-created` altında görünür.
+
 ## Kartla bağış
-Henüz yok; `bagis.html` içinde "Yakında" olarak kapalı. iyzico entegrasyonu Netlify Functions ile yapılacak.
+Fonzip + iyzico. `data/site.json` → `bagis.kartLinki` alanına Fonzip bağış sayfası adresi yazılınca "Kart ile" seçeneği açılır.
 
 ## Yayın
 GitHub deposu Netlify'a bağlı; `main` dalına gönderilen her değişiklik otomatik yayınlanır. Ayarlar `netlify.toml` içinde.

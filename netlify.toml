@@ -2,6 +2,11 @@
 [build]
   publish = "."
 
+# Form gönderimlerini Fonzip'e aktaran fonksiyon (netlify/functions/submission-created.mjs)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Veri dosyası her açılışta tazelensin (sayılar ve etkinlikler hemen görünsün)
 [[headers]]
   for = "/data/*"

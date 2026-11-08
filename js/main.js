@@ -52,6 +52,21 @@
     </div>`;
   document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
+  /* ---------- Sayfa yolu ---------- */
+  const pageTitle = PAGES.find(([id]) => id === page)?.[2] || (page === 'uye-ol' ? 'Üye Ol' : null);
+  const pageHero = document.querySelector('.page-hero .wrap');
+  if (page !== 'index' && pageTitle && pageHero) {
+    const breadcrumb = document.createElement('nav');
+    breadcrumb.className = 'breadcrumbs';
+    breadcrumb.setAttribute('aria-label', 'Sayfa yolu');
+    breadcrumb.innerHTML = `
+      <ol>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li aria-current="page"><span>${pageTitle}</span></li>
+      </ol>`;
+    pageHero.prepend(breadcrumb);
+  }
+
   /* ---------- Mobil alt sekme çubuğu ---------- */
   const ic = {
     home: '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
