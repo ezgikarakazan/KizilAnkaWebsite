@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bağış · Kızılanka</title>
+<meta name="description" content="Bir öğrencinin bursuna ortak ol. Bağışın burs, materyal ya da etkinliğe gider; nereye ulaştığını sana bildiririz.">
+<meta property="og:title" content="Bağış · Kızılanka">
+<meta property="og:description" content="Bir öğrencinin bursuna ortak ol. Bağışın burs, materyal ya da etkinliğe gider; nereye ulaştığını sana bildiririz.">
+<meta property="og:image" content="https://kizilanka.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#faf7f2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kızılanka">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/mark.png">
+<link rel="apple-touch-icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body data-page="bagis">
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow fade-up">Bağış</div>
+      <h1>
+        <span class="line"><span>Bir öğrencinin</span></span>
+        <span class="line"><span>bursuna <span class="hl">ortak ol</span></span></span>
+      </h1>
+      <p class="lead fade-up" style="animation-delay:.5s">Bağışın bir üniversite öğrencisinin bursuna, ders materyaline ya da bir etkinliğe gider. Hangisine gideceğini sen seçersin; nereye ulaştığını sana bildiririz.</p>
+    </div>
+    <!-- Hedef data/site.json → burs ve istatistik.bursiyer bölümünden gelir; yüzde ve kalan otomatik hesaplanır -->
+    <div class="goal reveal" style="justify-self:end;width:100%">
+      <div class="top"><span data-bind="burs.donem">2026 güz dönemi</span><span><b data-count="7" data-bind="istatistik.bursiyer">0</b> / <span data-bind="burs.hedef">20</span> burs</span></div>
+      <div class="bar"><i data-fill="35" data-bind-fill="burs.yuzde"></i></div>
+      <p>Hedefe ulaşmak için <span data-bind="burs.kalan">13</span> burs kaldı. Bir burs <span data-bind="burs.tutar">3.000</span> TL.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="wrap split">
+    <div class="sticky">
+      <div class="dark-box reveal">
+        <p style="font-size:13px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700">Hesap adı</p>
+        <p style="color:#fff;font-weight:700;font-size:18px">Kızıl Anka Eğitim Derneği</p>
+        <p style="margin-top:4px">Ziraat Bankası · Sultanbeyli/İstanbul Şubesi</p>
+        <div style="margin-top:18px">
+          <div class="iban"><div><span class="cur">TL</span><code>TR22 0001 0016 7398 4285 3850 04</code><small>Hesap no 1673-98428538-5004</small></div><button type="button" class="copy" data-copy="TR220001001673984285385004">Kopyala</button></div>
+          <div class="iban"><div><span class="cur">USD</span><code>TR76 0001 0016 7398 4285 3850 02</code><small>Hesap no 1673-98428538-5002</small></div><button type="button" class="copy" data-copy="TR760001001673984285385002">Kopyala</button></div>
+          <div class="iban"><div><span class="cur">EUR</span><code>TR49 0001 0016 7398 4285 3850 03</code><small>Hesap no 1673-98428538-5003</small></div><button type="button" class="copy" data-copy="TR490001001673984285385003">Kopyala</button></div>
+        </div>
+        <p style="margin-top:16px;font-size:14.5px">Havale açıklamasına adını ve soyadını yaz; ödemeyi seninle eşleştirelim.</p>
+      </div>
+      <ol class="steps" style="margin-top:20px">
+        <li class="reveal"><div><b>Havale / EFT yap</b><span>Seçtiğin tutarı banka hesaplarımızdan birine gönder.</span></div></li>
+        <li class="reveal" data-d="1"><div><b>Bağışını bildir</b><span>Formu doldur; bağışını kayda geçirip sana dönelim.</span></div></li>
+        <li class="reveal" data-d="2"><div><b>Nereye ulaştığını öğren</b><span>Bağışının neye harcandığını sana bildiririz.</span></div></li>
+      </ol>
+    </div>
+
+    <form class="form form-box js-form reveal" data-ok="Bağış bildirimin alındı. Teşekkür ederiz!" id="donateForm" name="bagis-bildirimi" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="bagis-bildirimi">
+      <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <h2 style="font-size:clamp(32px,4vw,48px)">Bağış <em>bildirimi</em></h2>
+
+      <div class="field">
+        <label>Nasıl destek olmak istersin?</label>
+        <div class="seg">
+          <label><input type="radio" name="bagis_turu" value="burs" checked><span>Burs</span></label>
+          <label><input type="radio" name="bagis_turu" value="materyal"><span>Materyal</span></label>
+          <label><input type="radio" name="bagis_turu" value="etkinlik"><span>Etkinlik</span></label>
+          <label><input type="radio" name="bagis_turu" value="bagis"><span>Bağış</span></label>
+        </div>
+      </div>
+
+      <div class="field" data-show="bagis_turu=burs">
+        <label>Kaç öğrenciye burs vermek istersin?</label>
+        <div class="seg">
+          <label><input type="radio" name="burs_adet" value="1" checked><span>1 burs<small><span data-bind="burs.tutar" data-times="1">3.000</span> TL</small></span></label>
+          <label><input type="radio" name="burs_adet" value="2"><span>2 burs<small><span data-bind="burs.tutar" data-times="2">6.000</span> TL</small></span></label>
+          <label><input type="radio" name="burs_adet" value="3"><span>3 burs<small><span data-bind="burs.tutar" data-times="3">9.000</span> TL</small></span></label>
+          <label><input type="radio" name="burs_adet" value="5"><span>5 burs<small><span data-bind="burs.tutar" data-times="5">15.000</span> TL</small></span></label>
+        </div>
+        <span class="hint">Bir öğrencinin bursu <span data-bind="burs.tutar">3.000</span> TL.</span>
+      </div>
+
+      <div class="field" data-show="bagis_turu=materyal">
+        <label for="d-mat">Hangi materyalle destek olmak istersin?</label>
+        <input id="d-mat" name="materyal_icerigi" placeholder="Örn. ders kitabı seti">
+      </div>
+
+      <div class="field" data-show="bagis_turu=etkinlik,bagis">
+        <label>Bağış tutarını seç</label>
+        <div class="seg">
+          <label><input type="radio" name="tutar" value="250"><span>250 TL</span></label>
+          <label><input type="radio" name="tutar" value="500" checked><span>500 TL</span></label>
+          <label><input type="radio" name="tutar" value="1000"><span>1.000 TL</span></label>
+          <label><input type="radio" name="tutar" value="2500"><span>2.500 TL</span></label>
+          <label><input type="radio" name="tutar" value="5000"><span>5.000 TL</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Ödeme şekli</label>
+        <div class="seg">
+          <label><input type="radio" name="odeme_yontemi" value="havale" checked><span>Banka havalesi</span></label>
+          <!-- Kart ile ödeme iyzico entegrasyonu tamamlanınca açılacak: disabled'ı kaldır, alttaki hint metnini geri getir -->
+          <label class="soon"><input type="radio" name="odeme_yontemi" value="kart" disabled><span>Kart ile<small>Yakında</small></span></label>
+        </div>
+        <span class="hint">Kartla bağış çok yakında. Şimdilik bağışını yukarıdaki hesaplara havale ile yapabilirsin.</span>
+      </div>
+
+      <fieldset>
+        <div class="field full"><label for="d-ad">Adı Soyadı</label><input id="d-ad" name="ad_soyad" autocomplete="name" required></div>
+        <div class="field"><label for="d-mail">E-posta</label><input id="d-mail" name="eposta" type="email" autocomplete="email" inputmode="email" required></div>
+        <div class="field"><label for="d-tel">Telefon (isteğe bağlı)</label><input id="d-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel"></div>
+        <div class="field full"><label for="d-msg">Mesajın (isteğe bağlı)</label><textarea id="d-msg" name="mesaj"></textarea></div>
+      </fieldset>
+      <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak saklanmasını kabul ediyorum.</span></label>
+      <button class="btn btn-red btn-block" type="submit">Bildirimi gönder <span class="arrow">↗</span></button>
+    </form>
+  </div>
+</section>
+
+</main>
+<script src="js/main.js?v=5" defer></script>
+</body>
+</html>

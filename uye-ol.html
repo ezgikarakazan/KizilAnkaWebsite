@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aramıza Katıl · Kızılanka</title>
+<meta name="description" content="Kızılanka'ya katkı payı ödeyen üye olarak ya da katkı payı ödemeden öğrenci grubunda katılabilirsin.">
+<meta property="og:title" content="Aramıza Katıl · Kızılanka">
+<meta property="og:description" content="Kızılanka'ya katkı payı ödeyen üye olarak ya da katkı payı ödemeden öğrenci grubunda katılabilirsin.">
+<meta property="og:image" content="https://kizilanka.com/assets/og.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#faf7f2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kızılanka">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/mark.png">
+<link rel="apple-touch-icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body data-page="uye-ol">
+<main id="main">
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow fade-up">Üyelik</div>
+    <h1>
+      <span class="line"><span>Aramıza</span></span>
+      <span class="line"><span><span class="hl">katıl</span></span></span>
+    </h1>
+    <p class="lead fade-up" style="animation-delay:.5s">İki yoldan katılabilirsin: aylık katkı payı ödeyen üye olarak ya da katkı payı ödemeden öğrenci grubunda. Sana uyanı seç.</p>
+  </div>
+</section>
+
+<section class="section-white" style="padding-top:60px">
+  <div class="wrap">
+    <div class="choose reveal" data-choose>
+      <button type="button" aria-pressed="true" aria-controls="p-uye">
+        <small>Katkı payı ödeyen üye</small>
+        <b>Üye olmak istiyorum</b>
+        <p>Derneğin asıl üyesi olursun. Başvurunu gönderince katkı payı ödeme sayfasına geçersin.</p>
+      </button>
+      <button type="button" aria-pressed="false" aria-controls="p-ogr">
+        <small>Öğrenci grubu</small>
+        <b>Öğrenciyim</b>
+        <p>Üniversite öğrencileri katkı payı ödemeden öğrenci grubumuza katılır.</p>
+      </button>
+    </div>
+
+    <!-- ===== ÜYE ===== -->
+    <div class="split tab-panel" id="p-uye">
+      <div class="sticky">
+        <h2 style="font-size:clamp(30px,3.6vw,46px)">Üye olarak nasıl <em>katılırsın?</em></h2>
+        <ol class="steps" style="margin-top:22px">
+          <li><div><b>Formu doldur</b><span>Seni tanımamız için bilgilerini eksiksiz ilet.</span></div></li>
+          <li><div><b>Ödeme sayfasına geç</b><span>Başvurunu gönderince katkı payını ödeyeceğin sayfaya geçersin.</span></div></li>
+          <li><div><b>Sonucu öğren</b><span>Yönetim Kurulu başvurunu en geç otuz gün içinde değerlendirir, sonucu e-postayla bildirir.</span></div></li>
+        </ol>
+        <div class="dark-box" style="margin-top:20px">
+          <div style="font-family:var(--display);font-size:52px;line-height:1">500 TL <span class="accent" style="font-size:.5em">/ ay</span></div>
+          <p style="margin-top:12px">Her ay bize omuz verdiğin için teşekkür ederiz. Katkın, topluluğumuzun gençlere uzanan elini güçlendirir. İlk katkını başvurunu tamamladıktan sonra rahatça yaparsın.</p>
+          <p style="margin-top:16px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700">Katkı payı hesabımız</p>
+          <p style="color:#fff">Kızıl Anka Eğitim Derneği · Ziraat Bankası</p>
+          <div class="iban"><div><code>TR06 0001 0016 7398 4285 3850 01</code><small>Hesap no 1673-98428538-5001</small></div><button type="button" class="copy" data-copy="TR060001001673984285385001">Kopyala</button></div>
+          <p style="font-size:14.5px;margin-top:8px">Havale açıklamasına adını ve soyadını yaz; ödemeyi başvurunla eşleştirelim.</p>
+        </div>
+      </div>
+
+      <form class="form form-box js-form" data-ok="Başvurun alındı. Sonucu e-postayla bildireceğiz." name="uyelik" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="uyelik">
+      <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <fieldset>
+          <legend>Kimlik bilgileri</legend>
+          <div class="field full"><label for="u-ad">Adı Soyadı</label><span class="hint">Kimliğinde yazdığı gibi, ikinci adın varsa onunla birlikte tam yaz.</span><input id="u-ad" name="ad_soyad" autocomplete="name" required></div>
+          <div class="field"><label for="u-tc">T.C. Kimlik No</label><input id="u-tc" name="tc_kimlik" inputmode="numeric" pattern="[1-9][0-9]{10}" maxlength="11" required></div>
+          <div class="field"><label for="u-dt">Doğum Tarihi</label><input id="u-dt" name="dogum_tarihi" type="date" data-age required><span class="hint">Başvurular 15–90 yaş arasında alınır.</span></div>
+          <div class="field"><label for="u-dy">Doğum Yeri</label><input id="u-dy" name="dogum_yeri" required></div>
+          <div class="field"><label for="u-an">Anne Adı</label><input id="u-an" name="anne_adi" required></div>
+          <div class="field"><label for="u-ba">Baba Adı</label><input id="u-ba" name="baba_adi" required></div>
+        </fieldset>
+        <fieldset>
+          <legend>Eğitim ve meslek</legend>
+          <div class="field"><label for="u-ogr">Öğrenim Durumu</label>
+            <select id="u-ogr" name="ogrenim_durumu" data-grade="u-sinif" required>
+              <option value="">Seçiniz</option><option>Lise</option><option>Ön lisans</option><option>Lisans</option><option>Yüksek lisans</option><option>Doktora</option><option>Mezun</option><option>Diğer</option>
+            </select></div>
+          <div class="field"><label for="u-sinif">Sınıf (varsa)</label><select id="u-sinif" name="sinif" disabled><option value="">Önce öğrenim durumunu seç</option></select></div>
+          <div class="field"><label for="u-uni">Üniversite (varsa)</label><input id="u-uni" name="universite"></div>
+          <div class="field"><label for="u-bol">Bölüm (varsa)</label><input id="u-bol" name="bolum"></div>
+          <div class="field full"><label for="u-mes">Meslek</label><input id="u-mes" name="meslek" autocomplete="organization-title" required></div>
+        </fieldset>
+        <fieldset>
+          <legend>İletişim</legend>
+          <div class="field"><label for="u-tel">Telefon No</label><input id="u-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="u-mail">E-posta</label><input id="u-mail" name="eposta" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="field full"><label for="u-adr">Adres</label><textarea id="u-adr" name="adres" autocomplete="street-address" style="min-height:90px" required></textarea></div>
+        </fieldset>
+        <fieldset>
+          <legend>Sosyal medya (isteğe bağlı)</legend>
+          <div class="field"><label for="u-ig">Instagram</label><input id="u-ig" name="instagram"></div>
+          <div class="field"><label for="u-x">X (Twitter)</label><input id="u-x" name="x"></div>
+          <div class="field full"><label for="u-li">LinkedIn</label><input id="u-li" name="linkedin"></div>
+        </fieldset>
+        <label class="check"><input type="checkbox" name="tuzuk_onayi" required><span>Derneğin tüzüğünü okudum ve üyelik şartlarını sağladığımı teyit ederim. Dernek amaçlarının gerçekleştirilmesi adına her türlü görevi üstlenmeye hazır olduğumu, tüzükte belirlenen mali yükümlülüklerimi eksiksiz yerine getireceğimi taahhüt ederim. Formda sunduğum bilgilerin doğruluğunu kabul eder, üyelik kaydımın yapılmasını saygılarımla talep ederim.</span></label>
+        <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak saklanmasını kabul ediyorum.</span></label>
+        <button class="btn btn-red btn-block" type="submit">Başvur ve ödemeye geç <span class="arrow">↗</span></button>
+      </form>
+    </div>
+
+    <!-- ===== ÖĞRENCİ ===== -->
+    <div class="split tab-panel" id="p-ogr" hidden>
+      <div class="sticky">
+        <h2 style="font-size:clamp(30px,3.6vw,46px)">Öğrenci olarak nasıl <em>katılırsın?</em></h2>
+        <ol class="steps" style="margin-top:22px">
+          <li><div><b>Formu doldur</b><span>Okulunu ve bölümünü bize ilet.</span></div></li>
+          <li><div><b>Öğrenciliğin doğrulanır</b><span>Formda verdiğin e-Devlet öğrenci belgesi koduyla doğrularız.</span></div></li>
+          <li><div><b>Öğrenci grubuna katıl</b><span>Başvurun onaylanınca öğrenci grubuna alınırsın.</span></div></li>
+        </ol>
+      </div>
+
+      <form class="form form-box js-form" data-ok="Öğrenci başvurun alındı. Doğrulamanın ardından e-postayla dönüş yapacağız." name="ogrenci-uyelik" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="ogrenci-uyelik">
+      <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <fieldset>
+          <legend>Kimlik bilgileri</legend>
+          <div class="field full"><label for="o-ad">Adı Soyadı</label><span class="hint">Kimliğinde yazdığı gibi, ikinci adın varsa onunla birlikte tam yaz.</span><input id="o-ad" name="ad_soyad" autocomplete="name" required></div>
+          <div class="field"><label for="o-tc">T.C. Kimlik No</label><input id="o-tc" name="tc_kimlik" inputmode="numeric" pattern="[1-9][0-9]{10}" maxlength="11" required></div>
+          <div class="field"><label for="o-dt">Doğum Tarihi</label><input id="o-dt" name="dogum_tarihi" type="date" data-age required><span class="hint">Başvurular 15–90 yaş arasında alınır.</span></div>
+          <div class="field"><label for="o-dy">Doğum Yeri</label><input id="o-dy" name="dogum_yeri" required></div>
+          <div class="field"><label for="o-an">Anne Adı</label><input id="o-an" name="anne_adi" required></div>
+          <div class="field"><label for="o-ba">Baba Adı</label><input id="o-ba" name="baba_adi" required></div>
+        </fieldset>
+        <fieldset>
+          <legend>Eğitim ve meslek</legend>
+          <div class="field"><label for="o-ogr">Öğrenim Durumu</label>
+            <select id="o-ogr" name="ogrenim_durumu" data-grade="o-sinif" required>
+              <option value="">Seçiniz</option><option>Ön lisans</option><option>Lisans</option><option>Yüksek lisans</option><option>Doktora</option>
+            </select></div>
+          <div class="field"><label for="o-sinif">Sınıf</label><select id="o-sinif" name="sinif" disabled required><option value="">Önce öğrenim durumunu seç</option></select></div>
+          <div class="field"><label for="o-uni">Üniversite</label><input id="o-uni" name="universite" required></div>
+          <div class="field"><label for="o-bol">Bölüm</label><input id="o-bol" name="bolum" required></div>
+          <div class="field full"><label for="o-kod">e-Devlet öğrenci belgesi doğrulama kodu</label><span class="hint">e-Devlet → YÖK → Öğrenci Belgesi Sorgulama ile belgeni al, altındaki kodu buraya yaz. Belgeyi göndermene gerek yok; kodu biz e-Devlet’ten doğrularız.</span><input id="o-kod" name="edevlet_kodu" required></div>
+          <div class="field full"><label for="o-mes">Meslek (varsa)</label><input id="o-mes" name="meslek"></div>
+        </fieldset>
+        <fieldset>
+          <legend>İletişim</legend>
+          <div class="field"><label for="o-tel">Telefon No</label><input id="o-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="o-mail">E-posta</label><input id="o-mail" name="eposta" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="field full"><label for="o-adr">Adres</label><textarea id="o-adr" name="adres" autocomplete="street-address" style="min-height:90px" required></textarea></div>
+        </fieldset>
+        <fieldset>
+          <legend>Sosyal medya (isteğe bağlı)</legend>
+          <div class="field"><label for="o-ig">Instagram</label><input id="o-ig" name="instagram"></div>
+          <div class="field"><label for="o-x">X (Twitter)</label><input id="o-x" name="x"></div>
+          <div class="field full"><label for="o-li">LinkedIn</label><input id="o-li" name="linkedin"></div>
+        </fieldset>
+        <label class="check"><input type="checkbox" name="beyan" required><span>Şu anda öğrenci olduğumu ve verdiğim bilgilerin doğru olduğunu beyan ederim.</span></label>
+        <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak saklanmasını kabul ediyorum.</span></label>
+        <button class="btn btn-red btn-block" type="submit">Öğrenci başvurusunu gönder <span class="arrow">↗</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="sec-head single">
+      <h2 class="reveal">Katılmadan <em>önce</em></h2>
+      <p class="reveal" data-d="1" style="max-width:none">Aklına takılan başka bir şey olursa <a class="accent" href="iletisim.html" style="font-weight:700">bize yaz</a>, memnuniyetle yanıtlarız.</p>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Kimler üye olabilir?</summary><div class="ans">Derneğimizin amaç ve ilkelerini benimseyen, bu doğrultuda çalışmayı kabul eden ve fiil ehliyetine sahip herkes üye olabilir. Yabancı uyruklu adaylar için Türkiye’de yerleşme hakkına sahip olmak gerekir.</div></details>
+      <details><summary>Üye ile öğrenci arasındaki fark nedir?</summary><div class="ans">Üyeler aylık katkı payı öder ve derneğin asıl üyesi olur. Öğrenciler katkı payı ödemeden öğrenci grubumuzda yer alır; öğrencilik durumu e-Devlet belgesiyle doğrulanır.</div></details>
+      <details><summary>Katkı payı ne kadar, nasıl ödenir?</summary><div class="ans">Aylık 500 TL. Başvurunu tamamladıktan sonra ödeme sayfasındaki banka bilgileriyle havale/EFT yapabilirsin. Tutarı tüzüğümüze göre Yönetim Kurulu belirler.</div></details>
+      <details><summary>Katkı payım nereye harcanıyor?</summary><div class="ans">Burslara, materyal desteklerine, etkinliklere ve derneğin işleyişine. Gelirlerimizi ve giderlerimizi Şeffaflık sayfamızda dönem dönem yayımlayacağız.</div></details>
+      <details><summary>Başvurum nasıl ve ne zaman değerlendirilir?</summary><div class="ans">Yönetim Kurulumuz başvurunu en geç otuz gün içinde değerlendirir ve sonucu e-postayla bildirir.</div></details>
+      <details><summary>Üyelikten nasıl ayrılırım?</summary><div class="ans">Yazılı olarak bildirmen yeterli; bildirimin Yönetim Kurulu’na ulaştığı anda ayrılmış sayılırsın. Ayrılmak, o güne kadar birikmiş katkı paylarını ortadan kaldırmaz.</div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="js/main.js?v=5" defer></script>
+</body>
+</html>

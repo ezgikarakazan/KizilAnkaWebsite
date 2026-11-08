@@ -1,0 +1,15 @@
+# Netlify ayarları: site düz HTML, derleme adımı yok; kök klasör yayınlanır.
+[build]
+  publish = "."
+
+# Veri dosyası her açılışta tazelensin (sayılar ve etkinlikler hemen görünsün)
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

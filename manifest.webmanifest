@@ -1,0 +1,13 @@
+{
+  "name": "Kızılanka · Gençliğin Topluluğu",
+  "short_name": "Kızılanka",
+  "lang": "tr",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#e3141f",
+  "icons": [
+    { "src": "assets/mark.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

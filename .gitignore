@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+.netlify/
+node_modules/
+*.zip
