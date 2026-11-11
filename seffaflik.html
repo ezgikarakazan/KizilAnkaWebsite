@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=104">
+<link rel="stylesheet" href="css/style.css?v=106">
 </head>
 <body data-page="seffaflik">
 <main id="main">
@@ -61,12 +61,12 @@
       <div><dt>Kuruluş tarihi</dt><dd>10 Ağustos 2026</dd></div>
       <div><dt>Dernek kütük / kayıt numarası</dt><dd>34-298-127</dd></div>
       <div><dt>Merkez</dt><dd>İstanbul</dd></div>
-      <div><dt>Bağış hesapları (IBAN)</dt><dd class="sf-ibans">
+      <div><dt>Bağış hesapları (IBAN)</dt><dd class="sf-ibans" data-list="hesaplar" data-style="sf">
         <span><b>TL</b><code>TR22 0001 0016 7398 4285 3850 04</code><button type="button" class="copy" data-copy="TR220001001673984285385004">Kopyala</button></span>
         <span><b>USD</b><code>TR76 0001 0016 7398 4285 3850 02</code><button type="button" class="copy" data-copy="TR760001001673984285385002">Kopyala</button></span>
         <span><b>EUR</b><code>TR49 0001 0016 7398 4285 3850 03</code><button type="button" class="copy" data-copy="TR490001001673984285385003">Kopyala</button></span>
       </dd></div>
-      <div><dt>İletişim</dt><dd><a class="accent" href="mailto:info@kizilanka.com">info@kizilanka.com</a></dd></div>
+      <div><dt>İletişim</dt><dd><a class="accent" data-contact="eposta" data-contact-text href="mailto:info@kizilanka.com">info@kizilanka.com</a></dd></div>
     </dl>
   </div>
 </section>
@@ -81,7 +81,7 @@
     <!-- Kurucu şeması: ortada anka, çevresinde Yönetim Kurulu ve kurucu üyeler.
          Konumlar 1000×640'lık bir sahneye göre yüzde olarak verilir; dar ekranda dikey listeye döner. -->
     <div class="fd reveal" role="group" aria-label="Kurucular ve Yönetim Kurulu">
-      <div class="fd-stage">
+      <div class="fd-stage" data-list="kurul">
         <svg class="fd-lines" viewBox="0 0 1000 640" aria-hidden="true">
           <circle class="fd-orbit" cx="500" cy="320" r="262"/>
           <path d="M530.4 256.9Q583.1 201.3 593.7 125.4" pathLength="1" style="--i:0"/>
@@ -112,7 +112,7 @@
     <div class="ed-split-head reveal">
       <h2>Resmî <em>belgelerimiz</em></h2>
     </div>
-    <ul class="sf-docs reveal" data-d="1">
+    <ul class="sf-docs reveal" data-d="1" data-list="belgeler">
       <!-- Tüzük dosyasının yolunu href'e yazın -->
       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></i><span><b>Dernek tüzüğü</b><small>Amacımızı, çalışma esaslarımızı ve üyelik şartlarımızı belirleyen resmî metin.</small></span><a class="btn btn-red" href="#" download>Tüzüğü indir</a></li>
       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></i><span><b>2026 faaliyet raporu</b><small>Yıl boyunca yaptığımız işlerin özeti.</small></span><span class="soon">Yakında</span></li>
@@ -132,11 +132,11 @@
     <div class="sf-ledger">
       <table class="reveal">
         <thead><tr><th>Gelirler</th><th>Tutar</th></tr></thead>
-        <tbody><tr><td>Bağışlar</td><td>—</td></tr><tr><td>Üye aidatları</td><td>—</td></tr><tr><td>Etkinlik gelirleri</td><td>—</td></tr></tbody>
+        <tbody data-list="gelirler"><tr><td>Bağışlar</td><td>—</td></tr><tr><td>Üye aidatları</td><td>—</td></tr><tr><td>Etkinlik gelirleri</td><td>—</td></tr></tbody>
       </table>
       <table class="reveal" data-d="1">
         <thead><tr><th>Giderler</th><th>Tutar</th></tr></thead>
-        <tbody><tr><td>Burslar</td><td>—</td></tr><tr><td>Etkinlikler</td><td>—</td></tr><tr><td>Genel giderler</td><td>—</td></tr><tr><td>Web sitesi ve iletişim</td><td>—</td></tr></tbody>
+        <tbody data-list="giderler"><tr><td>Burslar</td><td>—</td></tr><tr><td>Etkinlikler</td><td>—</td></tr><tr><td>Genel giderler</td><td>—</td></tr><tr><td>Web sitesi ve iletişim</td><td>—</td></tr></tbody>
       </table>
     </div>
   </div>
@@ -148,11 +148,11 @@
       <h2>Merak ettiğin <em>bir şey mi var?</em></h2>
       <p>Bu sayfada bulamadığın bir bilgi varsa sor, yanıtlayalım.</p>
     </div>
-    <a class="btn btn-red finale-btn" href="iletisim.html">Bize sor <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="btn btn-red finale-btn" href="iletisim.html">Bize sor</a>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=70" defer></script>
+<script src="js/main.js?v=72" defer></script>
 </body>
 </html>

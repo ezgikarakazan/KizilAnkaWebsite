@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=104">
+<link rel="stylesheet" href="css/style.css?v=106">
 </head>
 <body data-page="etkinlikler">
 <main id="main">
@@ -37,7 +37,7 @@
 
 <!-- ================= YAKLAŞAN ETKİNLİKLER =================
      Sıradaki etkinlik büyük bilette canlı geri sayımla, sonrakiler altta listelenir.
-     Etkinlikler data/site.json → etkinlikler listesinden gelir; tarihi geçenler otomatik "Geçmiş" bölümüne taşınır. -->
+     Etkinlikler data/etkinlikler.json dosyasından gelir (panel: Etkinlikler); tarihi geçenler otomatik "Geçmiş" bölümüne taşınır. -->
 <section class="ed evs dark-box" id="yaklasan">
   <div class="wrap">
     <div class="ab-head">
@@ -97,7 +97,7 @@
 
 <!-- ================= GEÇMİŞ ETKİNLİKLER =================
      Karta tıklayınca etkinliğin fotoğrafları büyük pencerede açılır.
-     Fotoğraf eklemek için data/site.json'da etkinliğe "gorseller": ["assets/etkinlikler/dosya.jpg", ...] yaz. -->
+     Fotoğraflar panelden (Etkinlikler → Galeri fotoğrafları) eklenir. -->
 <section class="section-white ed" id="gecmis" data-ev-past hidden>
   <div class="wrap">
     <div class="ab-head">
@@ -116,11 +116,11 @@
     <div>
       <h2>Etkinliklerden <em>ilk sen</em> haberdar ol</h2>
     </div>
-    <a class="btn btn-red finale-btn" href="uye-ol.html">Aramıza katıl <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="btn btn-red finale-btn" href="uye-ol.html">Aramıza katıl</a>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=70" defer></script>
+<script src="js/main.js?v=72" defer></script>
 </body>
 </html>

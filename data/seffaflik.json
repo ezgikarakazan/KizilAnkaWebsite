@@ -1,0 +1,86 @@
+{
+  "kurul": [
+    {
+      "ad": "Hasan Hüseyin Arslan",
+      "gorev": "Kurucu Başkan"
+    },
+    {
+      "ad": "Sinem Işık",
+      "gorev": "Kurucu Üye"
+    },
+    {
+      "ad": "Zehra Duran",
+      "gorev": "Başkan Yardımcısı"
+    },
+    {
+      "ad": "Erencan Ayas",
+      "gorev": "Kurucu Üye"
+    },
+    {
+      "ad": "Türkan Şevval Bakır",
+      "gorev": "Sekreter"
+    },
+    {
+      "ad": "Onur Güngör",
+      "gorev": "Kurucu Üye"
+    },
+    {
+      "ad": "Eray Büyükaslan",
+      "gorev": "Sayman"
+    }
+  ],
+  "belgeler": [
+    {
+      "baslik": "Dernek tüzüğü",
+      "aciklama": "Amacımızı, çalışma esaslarımızı ve üyelik şartlarımızı belirleyen resmî metin.",
+      "dosya": ""
+    },
+    {
+      "baslik": "2026 faaliyet raporu",
+      "aciklama": "Yıl boyunca yaptığımız işlerin özeti.",
+      "dosya": ""
+    },
+    {
+      "baslik": "2026 gelir-gider tablosu",
+      "aciklama": "Gelirlerimizin ve harcamalarımızın dökümü.",
+      "dosya": ""
+    },
+    {
+      "baslik": "Burs değerlendirme esasları",
+      "aciklama": "Burs başvurularının hangi ölçütlerle değerlendirildiği.",
+      "dosya": ""
+    }
+  ],
+  "gelirler": [
+    {
+      "kalem": "Bağışlar",
+      "tutar": null
+    },
+    {
+      "kalem": "Üye aidatları",
+      "tutar": null
+    },
+    {
+      "kalem": "Etkinlik gelirleri",
+      "tutar": null
+    }
+  ],
+  "giderler": [
+    {
+      "kalem": "Burslar",
+      "tutar": null
+    },
+    {
+      "kalem": "Etkinlikler",
+      "tutar": null
+    },
+    {
+      "kalem": "Genel giderler",
+      "tutar": null
+    },
+    {
+      "kalem": "Web sitesi ve iletişim",
+      "tutar": null
+    }
+  ]
+}

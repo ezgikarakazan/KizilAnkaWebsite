@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=104">
+<link rel="stylesheet" href="css/style.css?v=106">
 </head>
 <body data-page="uye-ol">
 <main id="main">
@@ -62,13 +62,13 @@
         </ol>
         <div class="bu-card uy-fee">
           <span class="bu-card-lbl">Aylık katkı payı</span>
-          <div class="bu-card-val">500<small>TL / ay</small></div>
+          <div class="bu-card-val"><span data-bind="katkiPayi.tutar">500</span><small>TL / ay</small></div>
           <p>Katkı payın burslara, materyal desteğine, etkinliklere ve derneğin işleyişine gider. İlk ödemeyi başvurunu tamamladıktan sonra yaparsın.</p>
           <div class="uy-acc">
             <span class="bu-card-lbl">Katkı payı hesabımız</span>
-            <b>Kızıl Anka Eğitim Derneği · Ziraat Bankası</b>
-            <div class="uy-iban"><code>TR06 0001 0016 7398 4285 3850 01</code><button type="button" class="copy" data-copy="TR060001001673984285385001">Kopyala</button></div>
-            <small>Hesap no 1673-98428538-5001</small>
+            <b><span data-bind="banka.hesapAdi">Kızıl Anka Eğitim Derneği</span> · <span data-bind="banka.banka">Ziraat Bankası</span></b>
+            <div class="uy-iban"><code data-bind="banka.katkiHesabi.iban">TR06 0001 0016 7398 4285 3850 01</code><button type="button" class="copy" data-copy="TR060001001673984285385001" data-bind-copy="banka.katkiHesabi.iban">Kopyala</button></div>
+            <small>Hesap no <span data-bind="banka.katkiHesabi.hesapNo">1673-98428538-5001</span></small>
           </div>
           <p class="uy-note">Havale açıklamasına adını ve soyadını yaz; ödemeyi başvurunla eşleştirelim.</p>
         </div>
@@ -179,7 +179,7 @@
     <div class="faq qa reveal" data-d="1">
       <details><summary>Kimler üye olabilir?</summary><div class="ans">Derneğimizin amaç ve ilkelerini benimseyen, bu doğrultuda çalışmayı kabul eden ve fiil ehliyetine sahip herkes üye olabilir. Yabancı uyruklu adaylar için Türkiye’de yerleşme hakkına sahip olmak gerekir.</div></details>
       <details><summary>Üye ile öğrenci arasındaki fark nedir?</summary><div class="ans">Üyeler aylık katkı payı öder ve derneğin asıl üyesi olur. Öğrenciler katkı payı ödemeden öğrenci grubumuzda yer alır; öğrencilik durumu e-Devlet belgesiyle doğrulanır.</div></details>
-      <details><summary>Katkı payı ne kadar, nasıl ödenir?</summary><div class="ans">Aylık 500 TL. Başvurunu tamamladıktan sonra ödeme sayfasındaki banka bilgileriyle havale/EFT yapabilirsin. Tutarı tüzüğümüze göre Yönetim Kurulu belirler.</div></details>
+      <details><summary>Katkı payı ne kadar, nasıl ödenir?</summary><div class="ans">Aylık <span data-bind="katkiPayi.tutar">500</span> TL. Başvurunu tamamladıktan sonra ödeme sayfasındaki banka bilgileriyle havale/EFT yapabilirsin. Tutarı tüzüğümüze göre Yönetim Kurulu belirler.</div></details>
       <details><summary>Katkı payım nereye harcanıyor?</summary><div class="ans">Burslara, materyal desteklerine, etkinliklere ve derneğin işleyişine. Gelirlerimizi ve giderlerimizi Şeffaflık sayfamızda dönem dönem yayımlayacağız.</div></details>
       <details><summary>Başvurum nasıl ve ne zaman değerlendirilir?</summary><div class="ans">Yönetim Kurulumuz başvurunu en geç otuz gün içinde değerlendirir ve sonucu e-postayla bildirir.</div></details>
       <details><summary>Üyelikten nasıl ayrılırım?</summary><div class="ans">Yazılı olarak bildirmen yeterli; bildirimin Yönetim Kurulu’na ulaştığı anda ayrılmış sayılırsın. Ayrılmak, o güne kadar birikmiş katkı paylarını ortadan kaldırmaz.</div></details>
@@ -188,6 +188,6 @@
 </section>
 
 </main>
-<script src="js/main.js?v=70" defer></script>
+<script src="js/main.js?v=72" defer></script>
 </body>
 </html>

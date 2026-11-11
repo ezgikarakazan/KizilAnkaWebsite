@@ -1,0 +1,207 @@
+# Kızılanka yönetim paneli (Decap CMS)
+# Adres: https://kizilanka.com/admin
+# Panelde yapılan her kayıt GitHub'daki depoya commit olarak gider; Netlify siteyi yaklaşık 1 dakikada yeniden yayınlar.
+# Kurulum adımları: README.md → "Yönetim paneli".
+
+backend:
+  name: github
+  repo: ezgikarakazan/KizilAnkaWebsite
+  branch: main
+  # GitHub girişi Netlify'daki site üzerinden yapılır; bilgisayardan (localhost) açılınca da bu siteyi kullanır
+  site_domain: kizilanka.com
+  commit_messages:
+    update: "Panel: {{collection}} / {{slug}} güncellendi"
+    uploadMedia: "Panel: {{path}} yüklendi"
+    deleteMedia: "Panel: {{path}} silindi"
+
+# Bilgisayarda denemek için: `npx decap-server` çalıştır, sonra http://localhost:8000/admin aç.
+local_backend: true
+
+locale: tr
+site_url: https://kizilanka.com
+display_url: https://kizilanka.com
+
+# Yüklenen resimler (etkinlik fotoğrafları)
+media_folder: assets/etkinlikler
+public_folder: assets/etkinlikler
+
+# Dosya adlarındaki Türkçe karakterler ve boşluklar sadeleştirilir (ör. "Yaz Pikniği 1.jpg" → "yaz-piknigi-1.jpg")
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: icerik
+    label: İçerik
+    editor:
+      preview: false
+    files:
+
+      # ---------------------------------------------------------------
+      - name: etkinlikler
+        label: Etkinlikler
+        file: data/etkinlikler.json
+        description: Tarihi geçen etkinlikler sitede kendiliğinden "Geçmiş" bölümüne taşınır. Geçmiş etkinliklere fotoğraf ekleyebilirsin.
+        fields:
+          - name: etkinlikler
+            label: Etkinlikler
+            label_singular: Etkinlik
+            widget: list
+            summary: "{{fields.tarih}} · {{fields.baslik}}"
+            fields:
+              - { name: baslik, label: Başlık, widget: string }
+              - { name: tarih, label: Tarih, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false }
+              - name: saat
+                label: Saat
+                widget: string
+                required: false
+                hint: "Örnek: 18:30. Belli değilse boş bırak."
+                pattern: ['^$|^([01][0-9]|2[0-3]):[0-5][0-9]$', "Saati SS:DD biçiminde yaz (ör. 18:30)"]
+              - { name: yer, label: Yer, widget: string, required: false, hint: "Boş bırakılırsa \"Yer duyurulacak\" yazar." }
+              - { name: aciklama, label: Açıklama, widget: text, required: false }
+              - { name: gorsel, label: Kapak fotoğrafı, widget: image, required: false, hint: "Boş bırakılırsa galerideki ilk fotoğraf kapak olur." }
+              - name: gorseller
+                label: Galeri fotoğrafları
+                label_singular: Fotoğraf
+                widget: list
+                required: false
+                hint: Geçmiş etkinlik kartına tıklayınca açılan galeride gösterilir.
+                field: { name: foto, label: Fotoğraf, widget: image }
+
+      # ---------------------------------------------------------------
+      - name: projeler
+        label: Projeler
+        file: data/projeler.json
+        description: Ana sayfada ve Faaliyetler sayfasında görünen projeler ve durumları.
+        fields:
+          - name: projeler
+            label: Projeler
+            label_singular: Proje
+            widget: list
+            summary: "{{fields.baslik}} ({{fields.durum}})"
+            fields:
+              - { name: baslik, label: Başlık, widget: string }
+              - { name: aciklama, label: Açıklama, widget: text, required: false }
+              - name: durum
+                label: Durum
+                widget: select
+                default: plan
+                options:
+                  - { label: Planlanıyor, value: plan }
+                  - { label: Devam ediyor, value: devam }
+                  - { label: Tamamlandı, value: tamam }
+
+      # ---------------------------------------------------------------
+      - name: genel
+        label: Sayılar, burs ve iletişim
+        file: data/site.json
+        description: Sitenin her yerinde kullanılan sayılar, burs bilgileri, duyuru şeridi, iletişim ve banka hesapları.
+        fields:
+          - name: istatistik
+            label: Sayılar (ana sayfadaki şerit)
+            widget: object
+            fields:
+              - { name: bursiyer, label: Bursiyer sayısı, widget: number, value_type: int, min: 0 }
+              - { name: uye, label: Topluluk üyesi sayısı, widget: number, value_type: int, min: 0 }
+              - { name: proje, label: Hayata geçen proje sayısı, widget: number, value_type: int, min: 0 }
+              - { name: etkinlik, label: Gerçekleşen etkinlik sayısı, widget: number, value_type: int, min: 0 }
+              - { name: kurucu, label: Kurucu sayısı, widget: number, value_type: int, min: 0 }
+          - name: burs
+            label: Burs
+            widget: object
+            fields:
+              - { name: basvuruAcik, label: Burs başvuruları açık mı?, widget: boolean, default: true, hint: "Kapatırsan Burs sayfasındaki form gizlenir, \"Başvurular şu an kapalı\" notu görünür." }
+              - { name: donem, label: Dönem, widget: string, hint: "Örnek: 2026 güz dönemi" }
+              - { name: hedef, label: Bu dönemki burs hedefi (kişi), widget: number, value_type: int, min: 0 }
+              - { name: tutar, label: Bir öğrencinin bursu (TL), widget: number, value_type: int, min: 0 }
+          - name: katkiPayi
+            label: Üyelik katkı payı
+            widget: object
+            fields:
+              - { name: tutar, label: Aylık katkı payı (TL), widget: number, value_type: int, min: 0 }
+          - name: duyuru
+            label: Sayfanın üstündeki duyuru şeridi
+            widget: object
+            fields:
+              - { name: goster, label: Şerit gösterilsin mi?, widget: boolean, default: true }
+              - { name: metin, label: Duyuru metni, widget: string, required: false }
+              - { name: baglantiMetni, label: Bağlantı yazısı, widget: string, required: false, hint: "Örnek: Bursa başvur" }
+              - { name: baglanti, label: Bağlantı adresi, widget: string, required: false, hint: "Örnek: burs.html" }
+          - name: iletisim
+            label: İletişim
+            widget: object
+            fields:
+              - { name: eposta, label: E-posta, widget: string }
+              - { name: telefon, label: Telefon, widget: string, hint: "Örnek: +90 506 255 00 02" }
+              - { name: instagram, label: Instagram kullanıcı adı, widget: string, required: false, hint: "@ işareti olmadan" }
+              - { name: x, label: X kullanıcı adı, widget: string, required: false, hint: "@ işareti olmadan" }
+          - name: banka
+            label: Banka hesapları
+            widget: object
+            fields:
+              - { name: hesapAdi, label: Hesap adı, widget: string }
+              - { name: banka, label: Banka, widget: string }
+              - { name: sube, label: Şube, widget: string, required: false }
+              - name: hesaplar
+                label: Bağış hesapları
+                label_singular: Hesap
+                widget: list
+                summary: "{{fields.para}} · {{fields.iban}}"
+                fields:
+                  - { name: para, label: Para birimi, widget: select, options: [TL, USD, EUR, GBP] }
+                  - { name: iban, label: IBAN, widget: string }
+                  - { name: hesapNo, label: Hesap no, widget: string, required: false }
+              - name: katkiHesabi
+                label: Katkı payı hesabı (Üye Ol sayfası)
+                widget: object
+                fields:
+                  - { name: iban, label: IBAN, widget: string }
+                  - { name: hesapNo, label: Hesap no, widget: string, required: false }
+          - name: bagis
+            label: Kartla bağış
+            widget: object
+            fields:
+              - { name: kartLinki, label: Fonzip bağış sayfası linki, widget: string, required: false, hint: "https:// ile başlayan link girilince Bağış sayfasında \"Kart ile\" seçeneği açılır." }
+
+      # ---------------------------------------------------------------
+      - name: seffaflik
+        label: Şeffaflık
+        file: data/seffaflik.json
+        description: Yönetim Kurulu şeması, belgeler ve gelir-gider tablosu.
+        fields:
+          - name: kurul
+            label: Yönetim Kurulu ve kurucular
+            label_singular: Kişi
+            widget: list
+            summary: "{{fields.ad}} · {{fields.gorev}}"
+            hint: Şemadaki sıra bu listedeki sıradır (sağ üstten başlayıp saat yönünde).
+            fields:
+              - { name: ad, label: Ad soyad, widget: string }
+              - { name: gorev, label: Görev, widget: string }
+              - { name: kisaltma, label: Daire içindeki harfler, widget: string, required: false, hint: "Boş bırakılırsa adın ilk iki harfi kullanılır (ör. HH)." }
+          - name: belgeler
+            label: Belgeler
+            label_singular: Belge
+            widget: list
+            summary: "{{fields.baslik}}"
+            fields:
+              - { name: baslik, label: Başlık, widget: string }
+              - { name: aciklama, label: Açıklama, widget: text, required: false }
+              - { name: dosya, label: Dosya (PDF), widget: file, required: false, media_folder: /assets/belgeler, public_folder: assets/belgeler, hint: "Dosya yüklenince \"İndir\" düğmesi çıkar; yoksa \"Yakında\" yazar." }
+          - name: gelirler
+            label: Gelirler
+            label_singular: Gelir kalemi
+            widget: list
+            summary: "{{fields.kalem}}: {{fields.tutar}}"
+            fields:
+              - { name: kalem, label: Kalem, widget: string }
+              - { name: tutar, label: Tutar (TL), widget: number, value_type: int, required: false, hint: "Boş bırakılırsa \"—\" yazar." }
+          - name: giderler
+            label: Giderler
+            label_singular: Gider kalemi
+            widget: list
+            summary: "{{fields.kalem}}: {{fields.tutar}}"
+            fields:
+              - { name: kalem, label: Kalem, widget: string }
+              - { name: tutar, label: Tutar (TL), widget: number, value_type: int, required: false, hint: "Boş bırakılırsa \"—\" yazar." }

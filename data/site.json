@@ -9,25 +9,51 @@
   "burs": {
     "donem": "2026 güz dönemi",
     "hedef": 20,
-    "tutar": 3000
+    "tutar": 3000,
+    "basvuruAcik": true
+  },
+  "katkiPayi": {
+    "tutar": 500
+  },
+  "duyuru": {
+    "goster": true,
+    "metin": "Burs başvurularımız açık.",
+    "baglantiMetni": "Bursa başvur",
+    "baglanti": "burs.html"
+  },
+  "iletisim": {
+    "eposta": "info@kizilanka.com",
+    "telefon": "+90 506 255 00 02",
+    "instagram": "kizilankader",
+    "x": "kizilankader"
+  },
+  "banka": {
+    "hesapAdi": "Kızıl Anka Eğitim Derneği",
+    "banka": "Ziraat Bankası",
+    "sube": "Sultanbeyli/İstanbul Şubesi",
+    "hesaplar": [
+      {
+        "para": "TL",
+        "iban": "TR22 0001 0016 7398 4285 3850 04",
+        "hesapNo": "1673-98428538-5004"
+      },
+      {
+        "para": "USD",
+        "iban": "TR76 0001 0016 7398 4285 3850 02",
+        "hesapNo": "1673-98428538-5002"
+      },
+      {
+        "para": "EUR",
+        "iban": "TR49 0001 0016 7398 4285 3850 03",
+        "hesapNo": "1673-98428538-5003"
+      }
+    ],
+    "katkiHesabi": {
+      "iban": "TR06 0001 0016 7398 4285 3850 01",
+      "hesapNo": "1673-98428538-5001"
+    }
   },
   "bagis": {
     "kartLinki": ""
-  },
-  "etkinlikler": [
-    {
-      "baslik": "Öğrenci Buluşması",
-      "tarih": "2026-11-14",
-      "saat": "18:00",
-      "yer": "Yer duyurulacak",
-      "aciklama": "Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız."
-    },
-    {
-      "baslik": "Kariyer Sohbeti",
-      "tarih": "2026-12-05",
-      "saat": "19:30",
-      "yer": "Yer duyurulacak",
-      "aciklama": "Üyelerimiz ve konuklarımızla öğrencilere yönelik bir kariyer sohbeti."
-    }
-  ]
+  }
 }

@@ -89,7 +89,7 @@
           <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
         </button>
-        <a class="btn btn-red top-cta" href="${navHref('bagis')}">Bağış yap ${ARROW}</a>
+        <a class="btn btn-red top-cta" href="${navHref('bagis')}">Bağış yap</a>
       </div>
       ${isHome ? '' : `<div class="subbar"><div class="wrap">${crumbHTML}</div></div>`}
     </header>`;
@@ -131,10 +131,10 @@
         <div>
           <h4>İletişim</h4>
           <ul>
-            <li><a href="mailto:info@kizilanka.com">info@kizilanka.com</a></li>
-            <li><a href="tel:+905062550002">+90 506 255 00 02</a></li>
-            <li><a href="https://www.instagram.com/kizilankader" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://x.com/kizilankader" target="_blank" rel="noopener">X</a></li>
+            <li data-contact-item><a data-contact="eposta" data-contact-text href="mailto:info@kizilanka.com">info@kizilanka.com</a></li>
+            <li data-contact-item><a data-contact="telefon" data-contact-text href="tel:+905062550002">+90 506 255 00 02</a></li>
+            <li data-contact-item><a data-contact="instagram" href="https://www.instagram.com/kizilankader" target="_blank" rel="noopener">Instagram</a></li>
+            <li data-contact-item><a data-contact="x" href="https://x.com/kizilankader" target="_blank" rel="noopener">X</a></li>
           </ul>
         </div>
         <div>
@@ -323,7 +323,7 @@
     }
   };
 
-  /* ---------- Site verisi (data/site.json) ----------
+  /* ---------- Site verisi (data/*.json, kizilanka.com/admin ile düzenlenir) ----------
      Sayılar, burs hedefi ve etkinlikler bu dosyadan gelir.
      Dosya okunamazsa HTML'deki değerler olduğu gibi kalır. */
   const AYLAR = ['OCA', 'ŞUB', 'MAR', 'NİS', 'MAY', 'HAZ', 'TEM', 'AĞU', 'EYL', 'EKİ', 'KAS', 'ARA'];
@@ -594,6 +594,161 @@
     list.forEach((ev, i) => panel.append(eventCard(ev, past, i)));
   };
 
+  /* ---------- Yönetim panelinden gelen içerik ----------
+     Aşağıdaki bölümler data/*.json dosyalarından doldurulur (kizilanka.com/admin ile düzenlenir).
+     Dosya okunamazsa HTML'deki yazılar olduğu gibi kalır. */
+  const fmtNum = v => (v === '' || v == null || isNaN(+v) ? null : (+v).toLocaleString('tr-TR'));
+  const ICON_DOC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>';
+  const copyBtn = iban => {
+    const b = el('button', 'copy', 'Kopyala');
+    b.type = 'button';
+    b.dataset.copy = String(iban).replace(/\s+/g, '');
+    return b;
+  };
+
+  // İletişim: e-posta, telefon, Instagram, X (bağlantı + görünen yazı)
+  const applyContact = c => {
+    if (!c) return;
+    const href = {
+      eposta: v => 'mailto:' + v,
+      telefon: v => 'tel:' + v.replace(/[^\d+]/g, ''),
+      instagram: v => 'https://www.instagram.com/' + v.replace(/^@/, ''),
+      x: v => 'https://x.com/' + v.replace(/^@/, '')
+    };
+    const text = { eposta: v => v, telefon: v => v, instagram: v => '@' + v.replace(/^@/, ''), x: v => '@' + v.replace(/^@/, '') };
+    document.querySelectorAll('[data-contact]').forEach(a => {
+      const k = a.dataset.contact, v = c[k];
+      if (!v || !href[k]) { if (c[k] === '') a.closest('[data-contact-item]')?.remove(); return; }
+      a.href = href[k](String(v));
+      const t = a.matches('[data-contact-text]') ? a : a.querySelector('[data-contact-text]');
+      if (t) t.textContent = text[k](String(v));
+    });
+  };
+
+  // Banka hesapları: Bağış ve Şeffaflık sayfalarındaki IBAN listeleri
+  const applyAccounts = list => {
+    if (!Array.isArray(list)) return;
+    document.querySelectorAll('[data-list="hesaplar"]').forEach(box => {
+      const sf = box.dataset.style === 'sf';
+      box.replaceChildren(...list.filter(h => h && h.iban).map(h => {
+        if (sf) {
+          const row = el('span');
+          row.append(el('b', null, h.para || ''), el('code', null, h.iban), copyBtn(h.iban));
+          return row;
+        }
+        const row = el('div', 'iban'), info = el('div');
+        info.append(el('span', 'cur', h.para || ''), el('code', null, h.iban));
+        if (h.hesapNo) info.append(el('small', null, 'Hesap no ' + h.hesapNo));
+        row.append(info, copyBtn(h.iban));
+        return row;
+      }));
+    });
+  };
+
+  // Projeler: ana sayfa ve Faaliyetler sayfası
+  const DURUM = { plan: ['plan', 'Planlanıyor', 1], devam: ['live', 'Devam ediyor', 2], tamam: ['done', 'Tamamlandı', 3] };
+  const applyProjects = list => {
+    if (!Array.isArray(list)) return;
+    document.querySelectorAll('[data-list="projeler"]').forEach(ol => {
+      ol.replaceChildren(...list.filter(p => p && p.baslik).map((p, i) => {
+        const [cls, label, step] = DURUM[p.durum] || DURUM.plan;
+        const li = el('li', 'pj-row reveal');
+        li.setAttribute('style', `--s:${step}`);
+        if (i % 3) li.dataset.d = String(i % 3);
+        const body = el('div');
+        body.append(el('h3', null, p.baslik));
+        if (p.aciklama) body.append(el('p', null, p.aciklama));
+        const foot = el('div', 'pj-foot'), steps = el('span', 'pj-steps');
+        steps.setAttribute('aria-hidden', 'true');
+        steps.append(el('i'), el('i'), el('i'));
+        foot.append(el('span', 'tag ' + cls, label), steps);
+        li.append(el('span', 'pj-n', String(i + 1).padStart(2, '0')), body, foot);
+        return li;
+      }));
+    });
+  };
+
+  // Yönetim Kurulu: Şeffaflık sayfasındaki dairesel şema (kişi sayısına göre yeniden çizilir)
+  const initials = p => (p.kisaltma || p.ad.split(/\s+/).slice(0, 2).map(w => w[0]).join('')).toLocaleUpperCase('tr-TR');
+  const applyBoard = list => {
+    const stage = document.querySelector('[data-list="kurul"]');
+    if (!stage || !Array.isArray(list)) return;
+    const people = list.filter(p => p && p.ad);
+    if (!people.length) return;
+    const W = 1000, H = 640, CX = 500, CY = 320, R = 262, n = people.length;
+    let paths = '';
+    const items = people.map((p, k) => {
+      const a = (-90 + 360 / (2 * n) + (k * 360) / n) * Math.PI / 180;
+      const x = CX + R * Math.cos(a), y = CY + R * Math.sin(a);
+      const ux = Math.cos(a), uy = Math.sin(a);
+      const sx = CX + ux * 70, sy = CY + uy * 70, ex = x - ux * 46, ey = y - uy * 46;
+      const off = 0.16 * Math.hypot(ex - sx, ey - sy);
+      const qx = (sx + ex) / 2 - uy * off, qy = (sy + ey) / 2 + ux * off;
+      paths += `<path d="M${sx.toFixed(1)} ${sy.toFixed(1)}Q${qx.toFixed(1)} ${qy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}" pathLength="1" style="--i:${k}"/>`;
+      const li = el('li', 'fd-n');
+      li.dataset.side = Math.cos(a) < -0.1 ? 'l' : 'r';
+      li.setAttribute('style', `--x:${(x / W * 100).toFixed(2)}%;--y:${(y / H * 100).toFixed(2)}%;--i:${k}`);
+      const av = el('span', 'fd-av', initials(p));
+      av.setAttribute('aria-hidden', 'true');
+      const t = el('span', 'fd-t');
+      t.append(el('b', null, p.ad), el('small', null, p.gorev || ''));
+      li.append(av, t);
+      return li;
+    });
+    stage.querySelector('.fd-lines').innerHTML = `<circle class="fd-orbit" cx="${CX}" cy="${CY}" r="${R}"/>` + paths;
+    stage.querySelector('.fd-list').replaceChildren(...items);
+  };
+
+  // Belgeler: dosya yüklenmişse "İndir", yoksa "Yakında"
+  const applyDocs = list => {
+    if (!Array.isArray(list)) return;
+    document.querySelectorAll('[data-list="belgeler"]').forEach(ul => {
+      ul.replaceChildren(...list.filter(d => d && d.baslik).map(d => {
+        const li = el('li'), ic = el('i'), txt = el('span');
+        ic.innerHTML = ICON_DOC;
+        txt.append(el('b', null, d.baslik));
+        if (d.aciklama) txt.append(el('small', null, d.aciklama));
+        let act;
+        if (d.dosya) {
+          act = el('a', 'btn btn-red', 'İndir');
+          act.href = d.dosya;
+          act.setAttribute('download', '');
+        } else act = el('span', 'soon', 'Yakında');
+        li.append(ic, txt, act);
+        return li;
+      }));
+    });
+  };
+
+  // Gelir-gider tabloları
+  const applyLedger = (key, list) => {
+    if (!Array.isArray(list)) return;
+    document.querySelectorAll(`[data-list="${key}"]`).forEach(tb => {
+      tb.replaceChildren(...list.filter(r => r && r.kalem).map(r => {
+        const tr = el('tr'), v = fmtNum(r.tutar);
+        tr.append(el('td', null, r.kalem), el('td', null, v ? v + ' TL' : '—'));
+        return tr;
+      }));
+    });
+  };
+
+  // Duyuru şeridi ve burs başvurusu açık/kapalı durumu
+  const applyNotice = (d, burs) => {
+    const ann = document.getElementById('announce');
+    if (ann && d) {
+      if (d.goster === false || !d.metin) ann.remove();
+      else {
+        ann.querySelector('strong').textContent = d.metin;
+        const a = ann.querySelector('a');
+        if (d.baglanti && d.baglantiMetni) { a.href = d.baglanti; a.textContent = d.baglantiMetni + ' →'; } else a.remove();
+      }
+    }
+    if (burs && typeof burs.basvuruAcik === 'boolean') {
+      document.querySelectorAll('[data-burs-acik]').forEach(n => n.classList.toggle('hidden', !burs.basvuruAcik));
+      document.querySelectorAll('[data-burs-kapali]').forEach(n => n.classList.toggle('hidden', burs.basvuruAcik));
+    }
+  };
+
   const applyData = data => {
     const st = data.istatistik || {}, burs = data.burs || {};
     if (burs.hedef && st.bursiyer != null) {
@@ -612,6 +767,18 @@
       const v = pick(data, n.dataset.bindRing);
       if (v != null) n.style.setProperty('--p', v);
     });
+    document.querySelectorAll('[data-bind-copy]').forEach(n => {
+      const v = pick(data, n.dataset.bindCopy);
+      if (v) n.dataset.copy = String(v).replace(/\s+/g, '');
+    });
+    applyContact(data.iletisim);
+    applyAccounts(pick(data, 'banka.hesaplar'));
+    applyProjects(data.projeler);
+    applyBoard(data.kurul);
+    applyDocs(data.belgeler);
+    applyLedger('gelirler', data.gelirler);
+    applyLedger('giderler', data.giderler);
+    applyNotice(data.duyuru, data.burs);
     document.querySelectorAll('[data-bind-fill]').forEach(n => {
       const v = pick(data, n.dataset.bindFill);
       if (v != null) n.dataset.fill = v;
@@ -639,9 +806,10 @@
     }
   };
 
-  fetch('data/site.json', { cache: 'no-cache' })
-    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
-    .then(applyData)
+  // Veri dosyaları: genel ayarlar, etkinlikler, projeler, şeffaflık (her biri panelde ayrı bölüm)
+  const DATA_FILES = ['site', 'etkinlikler', 'projeler', 'seffaflik'];
+  Promise.all(DATA_FILES.map(f => fetch(`data/${f}.json`, { cache: 'no-cache' }).then(r => (r.ok ? r.json() : {})).catch(() => ({}))))
+    .then(parts => applyData(Object.assign({}, ...parts)))
     .catch(() => {})
     .finally(() => requestAnimationFrame(() => requestAnimationFrame(startReveal)));
 
@@ -699,18 +867,21 @@
   });
 
   /* ---------- Kopyala ---------- */
-  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  document.addEventListener('click', async e => {
+    const b = e.target.closest('[data-copy]');
+    if (!b) return;
     const txt = b.dataset.copy;
     try { await navigator.clipboard.writeText(txt); }
-    catch (e) {
+    catch (err) {
       const t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select();
       try { document.execCommand('copy'); } catch (_) {}
       t.remove();
     }
+    if (b.classList.contains('ok')) return;
     const old = b.textContent;
     b.textContent = 'Kopyalandı'; b.classList.add('ok');
     setTimeout(() => { b.textContent = old; b.classList.remove('ok'); }, 1800);
-  }));
+  });
 
   /* ---------- Seçim çipleri (ana sayfa) ---------- */
   document.querySelectorAll('[data-chips]').forEach(g => g.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {

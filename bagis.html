@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=104">
+<link rel="stylesheet" href="css/style.css?v=106">
 </head>
 <body data-page="bagis">
 <main id="main">
@@ -48,9 +48,9 @@
     <div class="sticky">
       <div class="dark-box reveal">
         <p style="font-size:13px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700">Hesap adı</p>
-        <p style="color:#fff;font-weight:700;font-size:18px">Kızıl Anka Eğitim Derneği</p>
-        <p style="margin-top:4px">Ziraat Bankası · Sultanbeyli/İstanbul Şubesi</p>
-        <div style="margin-top:18px">
+        <p style="color:#fff;font-weight:700;font-size:18px" data-bind="banka.hesapAdi">Kızıl Anka Eğitim Derneği</p>
+        <p style="margin-top:4px"><span data-bind="banka.banka">Ziraat Bankası</span> · <span data-bind="banka.sube">Sultanbeyli/İstanbul Şubesi</span></p>
+        <div style="margin-top:18px" data-list="hesaplar">
           <div class="iban"><div><span class="cur">TL</span><code>TR22 0001 0016 7398 4285 3850 04</code><small>Hesap no 1673-98428538-5004</small></div><button type="button" class="copy" data-copy="TR220001001673984285385004">Kopyala</button></div>
           <div class="iban"><div><span class="cur">USD</span><code>TR76 0001 0016 7398 4285 3850 02</code><small>Hesap no 1673-98428538-5002</small></div><button type="button" class="copy" data-copy="TR760001001673984285385002">Kopyala</button></div>
           <div class="iban"><div><span class="cur">EUR</span><code>TR49 0001 0016 7398 4285 3850 03</code><small>Hesap no 1673-98428538-5003</small></div><button type="button" class="copy" data-copy="TR490001001673984285385003">Kopyala</button></div>
@@ -130,6 +130,6 @@
 </section>
 
 </main>
-<script src="js/main.js?v=70" defer></script>
+<script src="js/main.js?v=72" defer></script>
 </body>
 </html>

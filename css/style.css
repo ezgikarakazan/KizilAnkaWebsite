@@ -1649,3 +1649,20 @@ html.lb-open{overflow:hidden}
 @media (max-width:600px){
   .uy-choose{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   SADELEŞTİRME (v105)
+   Kartlar üzerine gelince yukarı zıplamaz; süs kavisi ve renk geçişi yok.
+   ========================================================= */
+a.fa-card:hover,.evp-card:hover,.rules-list li:hover,.pt-tile:hover,.pt-tile:focus-visible,a.pl-card:hover{translate:none}
+.rules-list li:hover{box-shadow:var(--shadow-border-hover)}
+a.fa-card:hover{box-shadow:var(--shadow-border-hover)}
+.fa-main:hover{box-shadow:none}
+.vis::before{display:none}
+.hk-steps::before{background:var(--line-2)}
+
+/* Giriş durum etiketi (v106): noktasız, iki parçalı ince etiket */
+.hv-status{gap:10px;padding:4px 16px 4px 4px;border-radius:999px;background:var(--surface);box-shadow:var(--shadow-border-strong);color:var(--ink);font-size:13.5px;font-weight:600;transition:box-shadow 150ms ease-out}
+.hv-status b{padding:4px 11px;border-radius:999px;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.hv-status:hover{text-decoration:none;box-shadow:0 0 0 1.5px var(--red)}

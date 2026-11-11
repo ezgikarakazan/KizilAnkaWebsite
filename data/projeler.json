@@ -1,0 +1,19 @@
+{
+  "projeler": [
+    {
+      "baslik": "Burs Programı",
+      "aciklama": "Üniversite öğrencilerine burs. Başvuruları Burs sayfasından alıyoruz, Yönetim Kurulu değerlendiriyor.",
+      "durum": "devam"
+    },
+    {
+      "baslik": "Kırtasiye ve Malzeme Desteği",
+      "aciklama": "Öğrencilere ders kitabı, kırtasiye ve ders malzemesi desteği sağladık.",
+      "durum": "tamam"
+    },
+    {
+      "baslik": "Dönem Başı Öğrenci Karşılama",
+      "aciklama": "Dönem başında yeni öğrencilerle tanışma buluşması. Tarihi ve yeri belli olunca Etkinlikler sayfasında duyuracağız.",
+      "durum": "plan"
+    }
+  ]
+}

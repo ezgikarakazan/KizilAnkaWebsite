@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=104">
+<link rel="stylesheet" href="css/style.css?v=106">
 </head>
 <body data-page="burs">
 <main id="main">
@@ -34,7 +34,7 @@
       </h1>
       <p class="lead fade-up" style="animation-delay:.5s">Okumaya devam etmek için desteğe mi ihtiyacın var? Üniversite öğrencisiysen formu doldur; sonraki adımları e-postayla bildirelim.</p>
       <div class="ctas fade-up" style="animation-delay:.65s">
-        <a class="btn btn-red" href="#basvuru">Başvuru formunu doldur <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-red" href="#basvuru">Başvuru formunu doldur</a>
         <a class="link-u" href="#surec">Süreci gör <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -47,7 +47,7 @@
         <div class="bu-goal-top"><span data-bind="burs.donem">2026 güz dönemi</span><span><b data-bind="istatistik.bursiyer">7</b> / <span data-bind="burs.hedef">20</span> burs</span></div>
         <div class="bar"><i data-fill="35" data-bind-fill="burs.yuzde"></i></div>
       </div>
-      <a class="btn btn-white" href="bagis.html?tur=burs">Bir bursa ortak ol <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn-white" href="bagis.html?tur=burs">Bir bursa ortak ol</a>
     </div>
   </div>
 </section>
@@ -86,13 +86,13 @@
     <div>
 
     <!-- Başvurular kapalıyken: aşağıdaki .notice'ten "hidden" sınıfını kaldırın, formun class'ına "hidden" ekleyin -->
-    <div class="notice hidden reveal">
+    <div class="notice hidden reveal" data-burs-kapali>
       <b>Başvurular şu an kapalı.</b>
       <span>Yeni başvuru dönemi açıldığında bu sayfada duyuracağız. Haberdar olmak için bize yazabilirsin.</span>
       <a class="btn btn-red" style="justify-self:start;margin-top:6px" href="iletisim.html">Bize yaz</a>
     </div>
 
-    <form class="form form-box bu-form js-form reveal" data-ok="Başvurun alındı. Sonraki adımları e-postayla bildireceğiz." novalidate name="burs-basvurusu" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="form form-box bu-form js-form reveal" data-burs-acik data-ok="Başvurun alındı. Sonraki adımları e-postayla bildireceğiz." novalidate name="burs-basvurusu" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="burs-basvurusu">
       <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <fieldset>
@@ -142,6 +142,6 @@
 </section>
 
 </main>
-<script src="js/main.js?v=70" defer></script>
+<script src="js/main.js?v=72" defer></script>
 </body>
 </html>

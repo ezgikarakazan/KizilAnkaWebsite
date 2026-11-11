@@ -1,0 +1,22 @@
+{
+  "etkinlikler": [
+    {
+      "baslik": "Öğrenci Buluşması",
+      "tarih": "2026-11-14",
+      "saat": "18:00",
+      "yer": "Yer duyurulacak",
+      "aciklama": "Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız.",
+      "gorsel": "",
+      "gorseller": []
+    },
+    {
+      "baslik": "Kariyer Sohbeti",
+      "tarih": "2026-12-05",
+      "saat": "19:30",
+      "yer": "Yer duyurulacak",
+      "aciklama": "Üyelerimiz ve konuklarımızla öğrencilere yönelik bir kariyer sohbeti.",
+      "gorsel": "",
+      "gorseller": []
+    }
+  ]
+}
