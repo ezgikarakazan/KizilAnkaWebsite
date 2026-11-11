@@ -7,8 +7,6 @@ backend:
   name: github
   repo: ezgikarakazan/KizilAnkaWebsite
   branch: main
-  # GitHub girişi Netlify'daki site üzerinden yapılır; bilgisayardan (localhost) açılınca da bu siteyi kullanır
-  site_domain: kizilanka.com
   commit_messages:
     update: "Panel: {{collection}} / {{slug}} güncellendi"
     uploadMedia: "Panel: {{path}} yüklendi"
