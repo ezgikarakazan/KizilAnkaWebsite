@@ -16,8 +16,6 @@ backend:
 local_backend: true
 
 locale: tr
-site_url: https://kizilanka.com
-display_url: https://kizilanka.com
 
 # Yüklenen resimler (etkinlik fotoğrafları)
 media_folder: assets/etkinlikler
