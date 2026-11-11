@@ -8,6 +8,13 @@ Saf HTML + CSS + JavaScript. Kurulum gerekmez; klasörü olduğu gibi sunucuya y
 - `js/main.js` — üst menü, mobil alt menü, footer, animasyonlar, form davranışları
 - `manifest.webmanifest` — telefonda "Ana ekrana ekle" ile uygulama gibi açılması için
 
+## Sayfa yapısı (tek sayfa)
+`index.html` tüm bölümleri alt alta gösterir (`#anasayfa`, `#hakkimizda`, `#faaliyetler`, `#etkinlikler`, `#burs`, `#seffaflik`, `#bagis`, `#iletisim`).
+Masaüstünde solda sabit bir yan menü vardır (mobilde ☰ ile açılan çekmece). Menü bu bölümlere kaydırır; aşağı indikçe aktif bölüm yan menüde ve üst bardaki sayfa yolunda (`Ana Sayfa / Etkinlikler`) güncellenir.
+Açık ve koyu tema vardır: site cihazın tercihini izler, üst bardaki ☀/☾ düğmesiyle değiştirilebilir (seçim tarayıcıda hatırlanır). Renkler `css/style.css` başındadır: koyu değerler `:root` bloğunda, açık değerler `:root[data-theme="light"]` ve `prefers-color-scheme: light` bloklarında (ikisi aynı tutulmalı). Vurgu kutuları, amblem kutusu ve partner şeridi iki temada da koyudur.
+Her bölümün altındaki **Daha fazla göster** butonu o bölümün detay sayfasına gider (ör. `etkinlikler.html`); detay sayfalarında sayfa yolu sabit görünür.
+Bölüm sırası `js/main.js` içindeki `PAGES` listesiyle aynı olmalı. Ana sayfada en yakın 2 etkinlik gösterilir (`data-limit="2"`).
+
 ## Sık yapılacak değişiklikler
 - **Menü / footer:** yalnızca `js/main.js` içindeki `PAGES` listesini ve footer bölümünü düzenleyin, tüm sayfalara yansır.
 - **Rakamlar, burs hedefi, burs tutarı:** `data/site.json` → `istatistik` ve `burs`. Bağış sayfasındaki yüzde ve "kalan burs" otomatik hesaplanır.

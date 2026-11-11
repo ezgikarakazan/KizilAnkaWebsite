@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("kz-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Burs Başvurusu · Kızılanka</title>
 <meta name="description" content="Üniversite öğrencisiysen ve eğitimine devam etmek için desteğe ihtiyacın varsa Kızılanka bursuna başvur.">
@@ -9,7 +10,7 @@
 <meta property="og:description" content="Üniversite öğrencisiysen ve eğitimine devam etmek için desteğe ihtiyacın varsa Kızılanka bursuna başvur.">
 <meta property="og:image" content="https://kizilanka.com/assets/og.png">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#faf7f2">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kızılanka">
@@ -18,60 +19,71 @@
 <link rel="apple-touch-icon" href="assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=104">
 </head>
 <body data-page="burs">
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow fade-up">Burs</div>
+<section class="page-hero bu-hero">
+  <div class="wrap bu-hero-in">
+    <div class="bu-hero-text">
       <h1>
         <span class="line"><span>Bursa</span></span>
         <span class="line"><span><span class="hl">başvur</span></span></span>
       </h1>
-      <p class="lead fade-up" style="animation-delay:.5s">Üniversite öğrencisiysen ve eğitimine devam etmek için desteğe ihtiyacın varsa başvur. Formu doldurman yeterli; sonraki adımları e-postayla bildiririz.</p>
+      <p class="lead fade-up" style="animation-delay:.5s">Okumaya devam etmek için desteğe mi ihtiyacın var? Üniversite öğrencisiysen formu doldur; sonraki adımları e-postayla bildirelim.</p>
       <div class="ctas fade-up" style="animation-delay:.65s">
-        <a class="btn btn-red magnetic" href="#basvuru">Başvuru formu <span class="arrow">↓</span></a>
+        <a class="btn btn-red" href="#basvuru">Başvuru formunu doldur <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="link-u" href="#surec">Süreci gör <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="dark-box fade-up" style="animation-delay:.3s">
-      <div style="font-family:var(--display);font-size:clamp(56px,7vw,92px);line-height:1"><span data-count="3000" data-bind="burs.tutar" class="reveal in">3.000</span> <span class="accent">TL</span></div>
-      <p style="margin-top:14px;font-size:17px;color:#fff">Bir öğrencinin bursu. Bursiyer sayımızı, bağışçılarımızla birlikte büyütüyoruz.</p>
-      <p style="margin-top:10px">Biliyoruz, bu tutar tek başına yeterli değil. Büyüdükçe artıracağımız ilk kalem bu olacak.</p>
-      <a class="btn btn-white" style="margin-top:22px" href="bagis.html?tur=burs">Bir bursa ortak ol <span class="arrow">↗</span></a>
+    <!-- Tutar ve dönem hedefi data/site.json → burs ve istatistik.bursiyer bölümünden gelir -->
+    <div class="bu-card fade-up" style="animation-delay:.3s">
+      <span class="bu-card-lbl">Bir öğrencinin bursu</span>
+      <div class="bu-card-val"><span data-bind="burs.tutar">3.000</span><small>TL</small></div>
+      <p>Biliyoruz, bu tutar tek başına yetmiyor. Büyüdükçe ilk artıracağımız kalem bu.</p>
+      <div class="bu-goal reveal">
+        <div class="bu-goal-top"><span data-bind="burs.donem">2026 güz dönemi</span><span><b data-bind="istatistik.bursiyer">7</b> / <span data-bind="burs.hedef">20</span> burs</span></div>
+        <div class="bar"><i data-fill="35" data-bind-fill="burs.yuzde"></i></div>
+      </div>
+      <a class="btn btn-white" href="bagis.html?tur=burs">Bir bursa ortak ol <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="section-white">
-  <div class="wrap split">
-    <div class="sticky">
-      <h2 class="reveal">Nasıl <em>değerlendiriyoruz?</em></h2>
-      <p class="lead reveal" style="margin-top:20px">Kararların nasıl verildiğini bilmen hakkın. Şimdilik belirli bir kriter listemiz yok; kriterleri başvurunun ardından seninle paylaşıyoruz.</p>
-      <div class="kv reveal" style="margin-top:28px">
-        <div><dt>Başvuru dönemi</dt><dd>Duyurulacak</dd></div>
-        <div><dt>Değerlendirme</dt><dd>Duyurulacak</dd></div>
-        <div><dt>Sonuçların açıklanması</dt><dd>Duyurulacak</dd></div>
+<section class="section-white ed" id="surec">
+  <div class="wrap">
+    <div class="ab-head">
+      <div class="reveal">
+        <h2>Nasıl <em>değerlendiriyoruz?</em></h2>
+      </div>
+      <div class="reveal" data-d="1">
+        <p>Kararların nasıl verildiğini bilmen hakkın. Şimdilik belirli bir kriter listemiz yok; kriterleri başvurunun ardından seninle paylaşıyoruz.</p>
       </div>
     </div>
-    <ol class="steps">
-      <li class="reveal"><div><b>Formu doldur</b><span>Kendini ve eğitim hayatını bize anlat.</span></div></li>
-      <li class="reveal" data-d="1"><div><b>Başvurun değerlendirilir</b><span>Yönetim Kurulumuz başvuruları inceler, değerlendirme kriterlerini sana e-postayla iletir.</span></div></li>
-      <li class="reveal" data-d="2"><div><b>Sonucu öğren</b><span>Sonucu e-postanla bildiririz.</span></div></li>
-      <li class="reveal" data-d="3"><div><b>Bursun başlar</b><span>Kabul edilirsen ödeme ve sonraki adımlar için seninle iletişime geçeriz.</span></div></li>
+    <div class="score-grid bu-dates reveal">
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7 2h2v2h6V2h2v2h2.5A2.5 2.5 0 0 1 22 6.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-13A2.5 2.5 0 0 1 4.5 4H7zM6 10.5v3h3v-3zm4.5 0v3h3v-3zm4.5 0v3h3v-3zM6 15v3h3v-3zm4.5 0v3h3v-3z"/></svg></i><div><span>Başvuru dönemi</span><b>Duyurulacak</b></div></div>
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10.5 3a7.5 7.5 0 0 1 5.96 12.06l4.24 4.24-1.4 1.4-4.24-4.24A7.5 7.5 0 1 1 10.5 3zm0 2.5a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg></i><div><span>Değerlendirme</span><b>Duyurulacak</b></div></div>
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v.3l-9 5.6-9-5.6z"/><path d="M3 9.2v8.3A2.5 2.5 0 0 0 5.5 20h13a2.5 2.5 0 0 0 2.5-2.5V9.2l-9 5.6z"/></svg></i><div><span>Sonuçların açıklanması</span><b>Duyurulacak</b></div></div>
+    </div>
+    <ol class="tl">
+      <li class="reveal"><b>Formu doldur</b><span>Kendini ve eğitim hayatını bize anlat.</span></li>
+      <li class="reveal" data-d="1"><b>Başvurun değerlendirilir</b><span>Yönetim Kurulumuz başvuruları inceler, değerlendirme kriterlerini sana e-postayla iletir.</span></li>
+      <li class="reveal" data-d="2"><b>Sonucu öğren</b><span>Sonucu sana e-postayla bildiririz.</span></li>
+      <li class="reveal" data-d="3"><b>Bursun başlar</b><span>Kabul edilirsen ödeme ve sonraki adımlar için sana ulaşırız.</span></li>
     </ol>
   </div>
 </section>
 
-<section id="basvuru">
-  <div class="narrow">
-    <div class="sec-head single" style="margin-bottom:28px">
-      <h2 class="reveal">Hikâyeni <em>anlat</em></h2>
-      <p class="reveal" data-d="1" style="max-width:none">Bilgilerin yalnızca başvurunu değerlendirenlerle paylaşılır ve KVKK’ya uygun saklanır. Gerekirse başvurunun ardından belgelerini e-postayla isteriz.</p>
+<section class="ed" id="basvuru">
+  <div class="wrap ed-split bu-apply">
+    <div class="ed-split-head reveal">
+      <h2>Hikâyeni <em>anlat</em></h2>
+      <p>Bilgilerini yalnızca başvurunu değerlendiren kişiler görür; KVKK’ya uygun saklarız. Belge gerekirse başvurundan sonra e-postayla isteriz.</p>
+      <ol class="bu-parts" aria-hidden="true"><li>Sen</li><li>Eğitimin</li><li>Hikâyen</li></ol>
     </div>
+    <div>
 
     <!-- Başvurular kapalıyken: aşağıdaki .notice'ten "hidden" sınıfını kaldırın, formun class'ına "hidden" ekleyin -->
     <div class="notice hidden reveal">
@@ -80,7 +92,7 @@
       <a class="btn btn-red" style="justify-self:start;margin-top:6px" href="iletisim.html">Bize yaz</a>
     </div>
 
-    <form class="form form-box js-form reveal" data-ok="Başvurun alındı. Sonraki adımları e-postayla bildireceğiz." novalidate name="burs-basvurusu" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="form form-box bu-form js-form reveal" data-ok="Başvurun alındı. Sonraki adımları e-postayla bildireceğiz." novalidate name="burs-basvurusu" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="burs-basvurusu">
       <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <fieldset>
@@ -108,18 +120,19 @@
       </fieldset>
       <label class="check"><input type="checkbox" name="beyan" required><span>Başvuruda verdiğim bilgilerin doğru olduğunu beyan ederim.</span></label>
       <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak başvurumun değerlendirilmesi amacıyla saklanmasını kabul ediyorum.</span></label>
-      <button class="btn btn-red btn-block" type="submit">Başvuruyu gönder <span class="arrow">↗</span></button>
+      <button class="btn btn-red btn-block" type="submit">Burs başvurumu gönder</button>
     </form>
+    </div>
   </div>
 </section>
 
-<section class="section-white">
-  <div class="narrow">
-    <div class="sec-head single">
-      <h2 class="reveal">Aklına <em>takılanlar</em></h2>
-      <p class="reveal" data-d="1" style="max-width:none">Burada cevabını bulamazsan <a class="accent" href="iletisim.html" style="font-weight:700">bize yaz</a>, memnuniyetle yanıtlarız.</p>
+<section class="section-white ed" id="sss">
+  <div class="wrap ed-split">
+    <div class="ed-split-head reveal">
+      <h2>Aklına <em>takılanlar</em></h2>
+      <a class="more" href="iletisim.html">Bize yaz <span class="arrow">→</span></a>
     </div>
-    <div class="faq reveal">
+    <div class="faq qa reveal" data-d="1">
       <details><summary>Kimler başvurabilir?</summary><div class="ans">Şimdilik belirli bir kriter listemiz yok. Başvurunu aldıktan sonra değerlendirme kriterlerimizi sana e-postayla ileteceğiz. Emin olamadığın bir nokta varsa bize yaz.</div></details>
       <details><summary>Başvurum ne zaman sonuçlanır?</summary><div class="ans">Başvuru takvimi netleştiğinde bu sayfada duyuracağız; sonucu ayrıca e-postanla da bildireceğiz.</div></details>
       <details><summary>Başvurumda verdiğim bilgiler kimlerle paylaşılır?</summary><div class="ans">Bilgilerin yalnızca başvurunu değerlendirenlerle paylaşılır ve KVKK’ya uygun saklanır.</div></details>
@@ -129,6 +142,6 @@
 </section>
 
 </main>
-<script src="js/main.js?v=7" defer></script>
+<script src="js/main.js?v=70" defer></script>
 </body>
 </html>

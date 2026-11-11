@@ -5,7 +5,7 @@
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#faf7f2",
+  "background_color": "#0a0a0b",
   "theme_color": "#e3141f",
   "icons": [
     { "src": "assets/mark.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }

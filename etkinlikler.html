@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("kz-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Etkinlikler · Kızılanka</title>
 <meta name="description" content="Öğrencilerle üyeleri bir araya getiren Kızılanka etkinlikleri. Yaklaşan ve geçmiş etkinlikler bu sayfada.">
@@ -9,7 +10,7 @@
 <meta property="og:description" content="Öğrencilerle üyeleri bir araya getiren Kızılanka etkinlikleri. Yaklaşan ve geçmiş etkinlikler bu sayfada.">
 <meta property="og:image" content="https://kizilanka.com/assets/og.png">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#faf7f2">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kızılanka">
@@ -18,72 +19,108 @@
 <link rel="apple-touch-icon" href="assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=104">
 </head>
 <body data-page="etkinlikler">
 <main id="main">
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="eyebrow fade-up">Etkinlikler</div>
     <h1>
       <span class="line"><span>Etkinliklerde</span></span>
       <span class="line"><span><span class="hl">buluşalım</span></span></span>
     </h1>
-    <p class="lead fade-up" style="animation-delay:.5s">Öğrencilerle üyeleri bir araya getiren etkinlikler düzenliyoruz. Her yeni etkinliği önce bu sayfada duyururuz; gelmeni çok isteriz.</p>
+    <p class="lead fade-up" style="animation-delay:.5s">Öğrencilerle üyeleri bir araya getiren etkinlikler düzenliyoruz. Yeni etkinlikleri önce burada duyuruyoruz; seni de bekleriz.</p>
   </div>
 </section>
 
-<section class="section-white">
+<!-- ================= YAKLAŞAN ETKİNLİKLER =================
+     Sıradaki etkinlik büyük bilette canlı geri sayımla, sonrakiler altta listelenir.
+     Etkinlikler data/site.json → etkinlikler listesinden gelir; tarihi geçenler otomatik "Geçmiş" bölümüne taşınır. -->
+<section class="ed evs dark-box" id="yaklasan">
   <div class="wrap">
-    <div class="tabs" role="tablist" aria-label="Etkinlik listesi" data-tabs>
-      <span class="pill" aria-hidden="true"></span>
-      <button type="button" role="tab" id="t-up" aria-controls="p-up" aria-selected="true">Yaklaşan</button>
-      <button type="button" role="tab" id="t-past" aria-controls="p-past" aria-selected="false" tabindex="-1">Geçmiş</button>
-    </div>
-
-    <!-- Etkinlikler data/site.json → etkinlikler listesinden gelir; tarihi geçenler otomatik "Geçmiş" sekmesine taşınır -->
-    <div class="tab-panel grid-2" id="p-up" role="tabpanel" aria-labelledby="t-up" data-events="up">
-      <article class="event reveal">
-        <div class="date"><b>14</b><small>KAS 2026</small></div>
-        <div>
-          <span class="tag live">Yaklaşan</span>
-          <h3>Öğrenci Buluşması</h3>
-          <p>Öğrencilerle üyelerin tanıştığı buluşma. Yer ve program netleşince bu sayfada duyurulur.</p>
-          <div class="meta"><span>Saat 18:00</span><span>Yer duyurulacak</span></div>
-        </div>
-      </article>
-      <article class="event reveal" data-d="1">
-        <div class="date"><b>5</b><small>ARA 2026</small></div>
-        <div>
-          <span class="tag live">Yaklaşan</span>
-          <h3>Kariyer Sohbeti</h3>
-          <p>Üyelerimizin ve konuklarımızın katılımıyla, öğrencilere yönelik bir sohbet etkinliği.</p>
-          <div class="meta"><span>Saat 19:30</span><span>Yer duyurulacak</span></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="tab-panel" id="p-past" role="tabpanel" aria-labelledby="t-past" data-events="past" hidden>
-      <div class="empty">Geçmiş etkinlikler burada listelenecek.</div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <div class="dark-box inner reveal">
-      <div>
-        <h2>Etkinliklerden <em>ilk sen</em> haberdar ol</h2>
-        <p>Topluluğumuzun üyeleri etkinlik duyurularına öncelikli ulaşır.</p>
+    <div class="ab-head">
+      <div class="reveal">
+        <h2>Sıradaki <em>buluşmalar</em></h2>
       </div>
-      <a class="btn btn-white magnetic" href="uye-ol.html">Aramıza katıl <span class="arrow">↗</span></a>
     </div>
+
+    <div class="evg" data-ev-tickets data-limit="1">
+      <article class="evn reveal" data-tarih="2026-11-14" data-saat="18:00" data-baslik="Öğrenci Buluşması" data-yer="" data-aciklama="Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız.">
+        <div class="evn-stub">
+          <span class="evn-lbl">Sıradaki</span>
+          <b class="evn-day" data-f="day">14</b>
+          <span class="evn-mon" data-f="mon">Kasım</span>
+          <span class="evn-wd" data-f="wd">Cumartesi</span>
+        </div>
+        <div class="evn-body">
+          <div class="evn-info">
+            <span class="tag live" data-f="tag">Yaklaşan</span>
+            <h3 data-f="title">Öğrenci Buluşması</h3>
+            <p data-f="desc">Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız.</p>
+            <ul class="evn-meta">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-f="saat">Saat 18:00</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-f="yer">Yer duyurulacak</span></li>
+            </ul>
+          </div>
+          <div class="evn-side">
+            <div class="evn-cd" role="timer" aria-label="Etkinliğe kalan süre">
+              <div><b data-cd="d">00</b><small>gün</small></div>
+              <div><b data-cd="h">00</b><small>saat</small></div>
+              <div><b data-cd="m">00</b><small>dakika</small></div>
+              <div><b data-cd="s">00</b><small>saniye</small></div>
+            </div>
+            <button type="button" class="btn btn-red evn-cal" data-ics><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Takvime ekle</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="ev-empty" data-ev-empty hidden>Şu an planlanmış yeni etkinlik yok. Yenilerini ilk burada duyuracağız.</p>
+
+    <div class="ev-more" data-ev-more>
+      <h3 class="ev-col-h reveal">Sonraki etkinlikler</h3>
+      <div class="evl" data-events="up" data-offset="1">
+        <article class="event reveal">
+          <div class="date"><b>5</b><small>ARA 2026</small></div>
+          <div>
+            <span class="tag live">Yaklaşan</span>
+            <h3>Kariyer Sohbeti</h3>
+            <p>Üyelerimiz ve konuklarımızla öğrencilere yönelik bir kariyer sohbeti.</p>
+            <div class="meta"><span>Saat 19:30</span><span>Yer duyurulacak</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GEÇMİŞ ETKİNLİKLER =================
+     Karta tıklayınca etkinliğin fotoğrafları büyük pencerede açılır.
+     Fotoğraf eklemek için data/site.json'da etkinliğe "gorseller": ["assets/etkinlikler/dosya.jpg", ...] yaz. -->
+<section class="section-white ed" id="gecmis" data-ev-past hidden>
+  <div class="wrap">
+    <div class="ab-head">
+      <div class="reveal">
+        <h2>Birlikte <em>yaşadıklarımız</em></h2>
+      </div>
+    </div>
+    <div class="evp evp-grid" data-ev-gallery>
+      <p class="ev-empty">Tamamlanan etkinlikler burada listelenecek.</p>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap finale-in reveal">
+    <div>
+      <h2>Etkinliklerden <em>ilk sen</em> haberdar ol</h2>
+    </div>
+    <a class="btn btn-red finale-btn" href="uye-ol.html">Aramıza katıl <span class="arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=7" defer></script>
+<script src="js/main.js?v=70" defer></script>
 </body>
 </html>

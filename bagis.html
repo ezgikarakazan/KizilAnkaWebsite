@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("kz-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bağış · Kızılanka</title>
 <meta name="description" content="Bir öğrencinin bursuna ortak ol. Bağışın burs, materyal ya da etkinliğe gider; nereye ulaştığını sana bildiririz.">
@@ -9,7 +10,7 @@
 <meta property="og:description" content="Bir öğrencinin bursuna ortak ol. Bağışın burs, materyal ya da etkinliğe gider; nereye ulaştığını sana bildiririz.">
 <meta property="og:image" content="https://kizilanka.com/assets/og.png">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#faf7f2">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kızılanka">
@@ -18,8 +19,8 @@
 <link rel="apple-touch-icon" href="assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=104">
 </head>
 <body data-page="bagis">
 <main id="main">
@@ -27,7 +28,6 @@
 <section class="page-hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow fade-up">Bağış</div>
       <h1>
         <span class="line"><span>Bir öğrencinin</span></span>
         <span class="line"><span>bursuna <span class="hl">ortak ol</span></span></span>
@@ -64,10 +64,10 @@
       </ol>
     </div>
 
-    <form class="form form-box js-form reveal" data-ok="Bağış bildirimin alındı. Teşekkür ederiz!" id="donateForm" name="bagis-bildirimi" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="form form-box js-form reveal" data-ok="Bağış bildirimin alındı. Teşekkür ederiz." id="donateForm" name="bagis-bildirimi" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="bagis-bildirimi">
       <p class="hp" aria-hidden="true"><label>Bu alanı boş bırak <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <h2 style="font-size:clamp(32px,4vw,48px)">Bağış <em>bildirimi</em></h2>
+      <h2 style="font-size:clamp(22px,2vw,28px)">Bağış <em>bildirimi</em></h2>
 
       <div class="field">
         <label>Nasıl destek olmak istersin?</label>
@@ -113,7 +113,7 @@
           <!-- Kart ile bağış: data/site.json → bagis.kartLinki doldurulunca (Fonzip bağış sayfası) kendiliğinden açılır -->
           <label class="soon" data-card-option><input type="radio" name="odeme_yontemi" value="kart" disabled><span>Kart ile<small>Yakında</small></span></label>
         </div>
-        <span class="hint" data-card-hint>Kartla bağış çok yakında. Şimdilik bağışını yukarıdaki hesaplara havale ile yapabilirsin.</span>
+        <span class="hint" data-card-hint>Kartla bağış yakında açılacak. Şimdilik yukarıdaki hesaplara havale yapabilirsin.</span>
       </div>
 
       <fieldset>
@@ -123,13 +123,13 @@
         <div class="field full"><label for="d-msg">Mesajın (isteğe bağlı)</label><textarea id="d-msg" name="mesaj"></textarea></div>
       </fieldset>
       <label class="check"><input type="checkbox" name="kvkk_onayi" required><span><a href="kvkk.html">KVKK Aydınlatma Metni</a>’ni okudum. Kişisel verilerimin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’na uygun olarak saklanmasını kabul ediyorum.</span></label>
-      <button class="btn btn-red btn-block" type="submit" data-show="odeme_yontemi=havale">Bildirimi gönder <span class="arrow">↗</span></button>
-      <a class="btn btn-red btn-block hidden" data-show="odeme_yontemi=kart" data-card-link href="#" target="_blank" rel="noopener">Kartla bağış yap <span class="arrow">↗</span></a>
+      <button class="btn btn-red btn-block" type="submit" data-show="odeme_yontemi=havale">Bağışımı bildir</button>
+      <a class="btn btn-red btn-block hidden" data-show="odeme_yontemi=kart" data-card-link href="#" target="_blank" rel="noopener">Kartla bağış yap</a>
     </form>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=7" defer></script>
+<script src="js/main.js?v=70" defer></script>
 </body>
 </html>

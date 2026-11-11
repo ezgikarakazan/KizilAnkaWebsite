@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("kz-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Kızılanka · Gençliğin Topluluğu</title>
 <meta name="description" content="Kızılanka, yeteneği olup fırsat bulamayan üniversite öğrencilerinin yanında duran, başvuruyla üye alan bir eğitim derneği. Bursa başvur, üye ol ya da bağış yap.">
@@ -9,7 +10,7 @@
 <meta property="og:description" content="Kızılanka, yeteneği olup fırsat bulamayan üniversite öğrencilerinin yanında duran, başvuruyla üye alan bir eğitim derneği.">
 <meta property="og:image" content="https://kizilanka.com/assets/og.png">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#faf7f2">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kızılanka">
@@ -18,173 +19,364 @@
 <link rel="apple-touch-icon" href="assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=104">
 </head>
 <body data-page="index">
 <main id="main">
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow fade-up" style="animation-delay:.05s">Gençliğin Topluluğu</div>
-      <h1>
-        <span class="line"><span>Doğru zamanda</span></span>
-        <span class="line"><span>uzatılan <span class="hl">bir el,</span></span></span>
-        <span class="line"><span>bir hayatı değiştirir</span></span>
-      </h1>
-      <p class="lead fade-up" style="animation-delay:.6s">Yeteneği olan ama kapısı kapalı kalan üniversite öğrencilerine burs veriyoruz. Kaynağımız üyelerimizin katkı payı ve bağışlar. Her kuruşun nereye gittiğini herkese açık yayımlayacağız.</p>
-      <div class="ctas fade-up" style="animation-delay:.75s">
-        <a class="btn btn-red magnetic" href="uye-ol.html">Aramıza katıl <span class="arrow">↗</span></a>
-        <a class="btn btn-ghost magnetic" href="faaliyetler.html">Neler yapıyoruz? <span class="arrow">→</span></a>
-      </div>
-    </div>
-
-    <div class="emblem fade-up" style="animation-delay:.3s" id="emblem">
-      <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><path id="circ" d="M100,100 m-94,0 a94,94 0 1,1 188,0 a94,94 0 1,1 -188,0"/></defs>
-        <text><textPath href="#circ">Kızılanka · Burs · Destek · Etkinlik · Şeffaflık · Kızılanka · Burs · Destek ·</textPath></text>
-      </svg>
-      <div class="card" id="tilt"><img src="assets/mark.png" alt="Kızılanka amblemi"></div>
-      <div class="badge b1"><i></i>Burs başvuruları açık</div>
-      <div class="badge b2">Bütün Ümidim Gençliktedir</div>
+<!-- ================= ANA SAYFA ================= -->
+<!-- Fotoğraf: assets/hero.jpg eklenince sağ tarafta görünür; yoksa amblemli sade alan kalır -->
+<section class="hero hv" id="anasayfa">
+  <div class="hv-photo">
+    <img src="assets/hero.jpg" alt="" aria-hidden="true" onerror="this.parentNode.classList.add('no-photo');this.remove()">
+    <div class="hv-fallback">
+      <!-- Anka katmanları: halka yerinde kalır; kuş (sol kanat + gövde + sağ kanat) uçar -->
+      <button type="button" class="anka" id="anka" aria-label="Ankayı uçur">
+        <img class="anka-ring" src="assets/anka-ring.svg" alt="">
+        <span class="anka-bird"><img class="aw still" src="assets/anka-bird.svg" alt=""><img class="aw l" src="assets/anka-wing-l.svg" alt=""><img class="aw r" src="assets/anka-wing-r.svg" alt=""><img class="aw b" src="assets/anka-body.svg" alt=""></span>
+      </button>
+      <span>Bütün Ümidim Gençliktedir</span>
     </div>
   </div>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="track">
-      <span>Burs</span><span>İhtiyaca özel destek</span><span>Etkinlikler</span><span>Şeffaflık</span><span>Dayanışma</span>
-      <span>Burs</span><span>İhtiyaca özel destek</span><span>Etkinlikler</span><span>Şeffaflık</span><span>Dayanışma</span>
+  <div class="wrap hv-in">
+    <div class="hv-text">
+      <a class="hv-status" href="burs.html"><i aria-hidden="true"></i>Burs başvuruları açık</a>
+      <h1>Doğru zamanda uzatılan bir el, <span class="hl">bir hayatı değiştirir</span></h1>
+      <p class="lead">Yeteneği olan ama okumak için desteğe ihtiyaç duyan üniversite öğrencilerine burs veriyoruz. Burslar üyelerimizin katkı paylarından ve bağışlardan karşılanıyor; her kuruşun nereye gittiğini herkese açık yayımlayacağız.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="uye-ol.html">Aramıza katıl <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="link-u" href="#faaliyetler">Ne yaptığımızı gör <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ================= SAYILARLA KIZILANKA =================
+     Girişin hemen altında ikonlu sayı şeridi. Sayılar data/site.json → istatistik bölümünden gelir. -->
+<section class="kpi" aria-labelledby="statsTitle">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="reveal">Yetenek her yerde var, <em>fırsat ise burada</em></h2>
-      <p class="reveal" data-d="1">Her şey zamanında güzel. Kimse, okurken doğru desteğe ulaşamadığı için yolundan vazgeçmemeli. Biz tam bu yüzden buradayız.</p>
+    <h2 class="sr-only" id="statsTitle">Sayılarla Kızılanka</h2>
+    <div class="score-grid reveal">
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 8.5l11 5.5 9-4.5V16h2V8.5z"/><path d="M5.5 12.6V16c0 1.9 2.9 3.5 6.5 3.5s6.5-1.6 6.5-3.5v-3.4L12 15.8z"/></svg></i><div><b><span data-bind="istatistik.bursiyer">7</span><sup>+</sup></b><span>Bursiyer</span></div></div>
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="9" cy="7.5" r="4"/><path d="M1.5 20.5c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5z"/><circle cx="17" cy="8.5" r="3"/><path d="M17.5 13.2c3 .3 5 2.4 5 5.3v2h-4.3c0-2.9-.9-5.4-2.9-7.1.7-.2 1.4-.2 2.2-.2z"/></svg></i><div><b><span data-bind="istatistik.uye">54</span><sup>+</sup></b><span>Topluluk üyesi</span></div></div>
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1.5 7.5 12 13l10.5-5.5z"/><path d="M3.6 11.3 1.5 12.4 12 18l10.5-5.6-2.1-1.1L12 15.7z"/><path d="M3.6 16.1 1.5 17.2 12 22.8l10.5-5.6-2.1-1.1L12 20.5z"/></svg></i><div><b><span data-bind="istatistik.proje">3</span><sup>+</sup></b><span>Hayata geçen proje</span></div></div>
+      <div class="score-item"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7 2h2v2h6V2h2v2h2.5A2.5 2.5 0 0 1 22 6.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-13A2.5 2.5 0 0 1 4.5 4H7zM6 10.5v3h3v-3zm4.5 0v3h3v-3zm4.5 0v3h3v-3zM6 15v3h3v-3zm4.5 0v3h3v-3z"/></svg></i><div><b><span data-bind="istatistik.etkinlik">1</span><sup>+</sup></b><span>Birlikte yaşadığımız etkinlik</span></div></div>
     </div>
-    <div class="grid-3">
-      <article class="card-f reveal" data-d="1">
-        <div class="num">01</div>
+  </div>
+</section>
+
+<!-- ================= HAKKIMIZDA =================
+     Görsel + hikâye + misyon/vizyon/isim listesi.
+     Fotoğraf: assets/hakkimizda.jpg eklenince görsel alanda görünür; yoksa amblemli panel kalır. -->
+<section class="section-white ed" id="hakkimizda">
+  <div class="wrap">
+    <div class="st">
+      <div class="st-vis vis reveal" aria-hidden="true">
+        <img class="vis-photo" src="assets/hakkimizda.jpg" alt="" onerror="this.remove()">
+        <img class="vis-mark" src="assets/anka-bird.svg" alt="">
+      </div>
+      <div class="st-text reveal" data-d="1">
+        <h2>Gençliğin <em>içinde</em> bir topluluk</h2>
+        <p>Kızılanka, gençlerin önündeki engelleri görmezden gelmeyen insanların topluluğu. Üye olmak için öğrenci olman gerekmez; bir gencin yanında durmak isteyen herkes başvurabilir.</p>
+        <a class="more" href="hakkimizda.html">Daha fazla göster <span class="arrow">→</span></a>
+      </div>
+      <ul class="st-list reveal" data-d="2">
+        <li><div>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></i>
+          <span><b>Misyon</b><small>Hiçbir genç yolundan vazgeçmesin. Burs, malzeme desteği ve etkinliklerle gençlerin yanında durmak ve her kuruşun hesabını herkese açık vermek.</small></span>
+        </div></li>
+        <li><div>
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i>
+          <span><b>Vizyon</b><small>Güvenin adresi olmak. Uzun vadeli hedefimiz Kızılanka Okulları.</small></span>
+        </div></li>
+        <li><a href="hakkimizda.html">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4 0-7-2.7-7-6.5 0-3.3 2.4-5.4 4-7.5.4 1.8 1.4 3 2.7 3.5C11.3 7 12.6 4.4 15 3c-.3 3 1 4.8 2.4 6.6C18.5 11 19 12.5 19 14.5 19 18.3 16 21 12 21z"/></svg></i>
+          <span><b>Kızıl + Anka</b><small>Cesaretle yeniden başlamanın adı. İsmimiz bir söz, her adımımız o sözün sınavı.</small></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ETKİNLİKLER =================
+     Koyu bant. Sıradaki etkinlik büyük bilette canlı geri sayımla gösterilir; diğerleri altta listelenir.
+     Etkinlikler data/site.json → etkinlikler listesinden gelir. -->
+<section class="ed evs dark-box" id="etkinlikler">
+  <div class="wrap">
+    <div class="ab-head">
+      <div class="reveal">
+        <h2>Seni de <em>aramızda</em> görelim</h2>
+      </div>
+      <div class="reveal" data-d="1">
+        <p>Öğrencilerle üyeleri bir araya getiren etkinlikler düzenliyoruz. Yeni etkinlikleri önce burada duyuruyoruz; seni de bekleriz.</p>
+        <a class="more" href="etkinlikler.html">Daha fazla göster <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- Sıradaki etkinlik: büyük bilet, canlı geri sayım (data-limit="1") -->
+    <div class="evg" data-ev-tickets data-limit="1">
+      <article class="evn reveal" data-tarih="2026-11-14" data-saat="18:00" data-baslik="Öğrenci Buluşması" data-yer="" data-aciklama="Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız.">
+        <div class="evn-stub">
+          <span class="evn-lbl">Sıradaki</span>
+          <b class="evn-day" data-f="day">14</b>
+          <span class="evn-mon" data-f="mon">Kasım</span>
+          <span class="evn-wd" data-f="wd">Cumartesi</span>
+        </div>
+        <div class="evn-body">
+          <div class="evn-info">
+            <span class="tag live" data-f="tag">Yaklaşan</span>
+            <h3 data-f="title">Öğrenci Buluşması</h3>
+            <p data-f="desc">Öğrencilerle üyelerin tanıştığı buluşma. Yeri ve programı netleşince burada duyuracağız.</p>
+            <ul class="evn-meta">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-f="saat">Saat 18:00</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-f="yer">Yer duyurulacak</span></li>
+            </ul>
+          </div>
+          <div class="evn-side">
+            <div class="evn-cd" role="timer" aria-label="Etkinliğe kalan süre">
+              <div><b data-cd="d">00</b><small>gün</small></div>
+              <div><b data-cd="h">00</b><small>saat</small></div>
+              <div><b data-cd="m">00</b><small>dakika</small></div>
+              <div><b data-cd="s">00</b><small>saniye</small></div>
+            </div>
+            <button type="button" class="btn btn-red evn-cal" data-ics><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Takvime ekle</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="ev-empty" data-ev-empty hidden>Şu an planlanmış yeni etkinlik yok. Yenilerini ilk burada duyuracağız.</p>
+
+    <!-- Alt kısım ikiye ayrılır: solda yaklaşan etkinlikler, sağda biten etkinliklerin galeri kartları.
+         Biten etkinliğe resim eklemek için data/site.json'da "gorsel": "assets/etkinlikler/dosya.jpg" yaz. -->
+    <div class="ev-split">
+      <div class="ev-col" data-ev-more>
+        <h3 class="ev-col-h reveal">Yaklaşan etkinlikler</h3>
+        <div class="evl" data-events="up" data-offset="1" data-limit="3">
+          <article class="event reveal">
+            <div class="date"><b>5</b><small>ARA 2026</small></div>
+            <div>
+              <span class="tag live">Yaklaşan</span>
+              <h3>Kariyer Sohbeti</h3>
+              <p>Üyelerimiz ve konuklarımızla öğrencilere yönelik bir kariyer sohbeti.</p>
+              <div class="meta"><span>Saat 19:30</span><span>Yer duyurulacak</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="ev-col ev-past reveal" data-d="1" data-ev-past hidden>
+        <div class="ev-col-top">
+          <h3 class="ev-col-h">Biten etkinlikler</h3>
+          <div class="evp-nav">
+            <button type="button" data-evp="-1" aria-label="Önceki etkinlikler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" data-evp="1" aria-label="Sonraki etkinlikler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="evp" data-ev-gallery tabindex="0" aria-label="Biten etkinlikler galerisi">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAALİYETLER ================= -->
+<section id="faaliyetler" class="fx ed">
+  <div class="wrap">
+    <!-- Başlık satırı + üç çalışma alanı kartı (Burs öne çıkan amblemli kart) -->
+    <div class="ab-head">
+      <div class="reveal">
+        <h2>Yetenek her yerde var, <em>fırsat ise burada</em></h2>
+      </div>
+      <div class="reveal" data-d="1">
+        <p>Hiçbir öğrenci, doğru zamanda destek bulamadığı için okulu bırakmak zorunda kalmamalı. Bunun için üç alanda çalışıyoruz.</p>
+        <a class="more" href="faaliyetler.html">Daha fazla göster <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="fa">
+      <a class="fa-card fa-main vis reveal" href="#burs">
+        <i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 8.5l11 5.5 9-4.5V16h2V8.5z"/><path d="M5.5 12.6V16c0 1.9 2.9 3.5 6.5 3.5s6.5-1.6 6.5-3.5v-3.4L12 15.8z"/></svg></i>
         <h3>Burs</h3>
-        <p>Üniversite öğrencilerine burs veriyoruz. Her başvuruyu Yönetim Kurulu değerlendirir, kararın gerekçesini de başvurana bildirir.</p>
-        <a class="link" href="burs.html">Burs başvurusu <b>→</b></a>
-      </article>
-      <article class="card-f reveal" data-d="2">
-        <div class="num">02</div>
+        <p>Üniversite öğrencilerine burs veriyoruz. Her başvuruyu Yönetim Kurulu inceler ve kararın gerekçesini sana açıkça yazar.</p>
+        <span class="fa-go">Bursa başvur <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+      <div class="fa-card reveal" data-d="1">
+        <i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.2s-8.3-4.9-10.3-10.3C.4 7.2 2.8 3.6 6.6 3.6c2.3 0 4 1.3 5.4 3.1 1.4-1.8 3.1-3.1 5.4-3.1 3.8 0 6.2 3.6 4.9 7.3-2 5.4-10.3 10.3-10.3 10.3z"/></svg></i>
         <h3>İhtiyaca özel destek</h3>
-        <p>Her öğrencinin yolundaki engel farklıdır; bazen bir burstan fazlasına ihtiyaç vardır. Bu desteği hazırlıyoruz. Önce dinleyeceğiz, sonra o öğrencinin ihtiyacına göre yanında olmaya çalışacağız.</p>
-      </article>
-      <article class="card-f reveal" data-d="3">
-        <div class="num">03</div>
+        <p>Her öğrencinin önündeki engel farklı; bazen burs yetmez. Bu desteği hazırlıyoruz: önce seni dinleyeceğiz, sonra neye ihtiyacın varsa onunla yanında olacağız.</p>
+      </div>
+      <a class="fa-card reveal" data-d="2" href="#etkinlikler">
+        <i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7 2h2v2h6V2h2v2h2.5A2.5 2.5 0 0 1 22 6.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-13A2.5 2.5 0 0 1 4.5 4H7zM6 10.5v3h3v-3zm4.5 0v3h3v-3zm4.5 0v3h3v-3zM6 15v3h3v-3zm4.5 0v3h3v-3z"/></svg></i>
         <h3>Etkinlikler</h3>
-        <p>Öğrencileri ve üyeleri aynı masaya oturtan etkinlikler düzenliyoruz. Duyuruları ilk bu sitede yayımlıyoruz.</p>
-        <a class="link" href="etkinlikler.html">Etkinlikler <b>→</b></a>
-      </article>
+        <p>Öğrencileri ve üyeleri aynı masada buluşturan etkinlikler düzenliyoruz. Her etkinliği önce bu sitede duyuruyoruz.</p>
+        <span class="fa-go">Etkinlikleri gör <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+
+    <!-- ================= Dahil olduğumuz topluluklar =================
+         Logolar JS ile kayan bant olur; JS yoksa .pt-src listesi ızgara olarak görünür. -->
+    <div class="pt" data-pt role="region" aria-labelledby="ptTitle">
+      <div class="pt-head reveal">
+        <h2 id="ptTitle">Dahil olduğumuz <em>topluluklar</em></h2>
+        <p>Kızılanka, Google for Nonprofits programının bir katılımcısıdır ve Claude for Nonprofits aracılığıyla Claude kullanır.</p>
+      </div>
+
+      <ul class="pt-src">
+        <li data-cat="tech"><a class="pt-tile" href="https://openai.com" target="_blank" rel="noopener"><span class="pt-logo"><img class="padded" src="assets/partners/openai.svg" alt="OpenAI" loading="lazy"></span></a></li>
+        <li data-cat="tech"><a class="pt-tile" href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener"><span class="pt-logo"><img src="assets/partners/elevenlabs-logo-white.svg" alt="ElevenLabs Impact Program" loading="lazy"></span></a></li>
+        <li data-cat="destek"><a class="pt-tile" href="https://www.techsoup.org" target="_blank" rel="noopener"><span class="pt-logo"><img src="assets/partners/techsoup.svg" alt="TechSoup" loading="lazy"></span></a></li>
+        <li data-cat="destek"><a class="pt-tile" href="https://goodstack.io" target="_blank" rel="noopener"><span class="pt-logo"><img src="assets/partners/goodstack.svg" alt="Goodstack" loading="lazy"></span></a></li>
+      </ul>
+
+      <div class="pt-stage" hidden><div class="pt-track"></div></div>
+    </div>
+
+    <div class="pj-wrap">
+      <div class="pj-head reveal">
+        <h2>Projeler ve <em>durumları</em></h2>
+      </div>
+      <!-- Aşama: 1 = Planlanıyor, 2 = Devam ediyor, 3 = Tamamlandı -->
+      <ol class="pj">
+        <li class="pj-row reveal" style="--s:2"><span class="pj-n">01</span><div><h3>Burs Programı</h3><p>Üniversite öğrencilerine burs. Başvuruları Burs sayfasından alıyoruz, Yönetim Kurulu değerlendiriyor.</p></div><div class="pj-foot"><span class="tag live">Devam ediyor</span><span class="pj-steps" aria-hidden="true"><i></i><i></i><i></i></span></div></li>
+        <li class="pj-row reveal" data-d="1" style="--s:3"><span class="pj-n">02</span><div><h3>Kırtasiye ve Malzeme Desteği</h3><p>Öğrencilere ders kitabı, kırtasiye ve ders malzemesi desteği sağladık.</p></div><div class="pj-foot"><span class="tag done">Tamamlandı</span><span class="pj-steps" aria-hidden="true"><i></i><i></i><i></i></span></div></li>
+        <li class="pj-row reveal" data-d="2" style="--s:1"><span class="pj-n">03</span><div><h3>Dönem Başı Öğrenci Karşılama</h3><p>Dönem başında yeni öğrencilerle tanışma buluşması. Tarihi ve yeri belli olunca Etkinlikler sayfasında duyuracağız.</p></div><div class="pj-foot"><span class="tag plan">Planlanıyor</span><span class="pj-steps" aria-hidden="true"><i></i><i></i><i></i></span></div></li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="section-white">
+<!-- ================= BURS ================= -->
+<section id="burs" class="section-white ed">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="reveal">Seni de <em>aramızda</em> görelim</h2>
-      <div class="reveal" data-d="1" style="justify-self:end"><a class="btn btn-ghost magnetic" href="etkinlikler.html">Tüm etkinlikler <span class="arrow">→</span></a></div>
-    </div>
-    <div class="grid-2">
-      <article class="event reveal">
-        <div class="date"><b>14</b><small>KAS 2026</small></div>
-        <div>
-          <span class="tag live">Yaklaşan</span>
-          <h3>Öğrenci Buluşması</h3>
-          <p>Öğrencilerle üyelerin tanıştığı buluşma. Yer ve program netleşince bu sayfada duyurulur.</p>
-          <div class="meta"><span>Saat 18:00</span><span>Yer duyurulacak</span></div>
+    <div class="bs">
+      <div class="bs-text reveal">
+        <h2 class="ed-big">Bursa <em>başvur</em></h2>
+        <p class="lead">Okumaya devam etmek için desteğe mi ihtiyacın var? Üniversite öğrencisiysen formu doldur; sonraki adımları e-postayla bildirelim.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="burs.html#basvuru">Başvuru formunu doldur <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="more" href="burs.html">Daha fazla göster <span class="arrow">→</span></a>
         </div>
-      </article>
-      <article class="event reveal" data-d="1">
-        <div class="date"><b>5</b><small>ARA 2026</small></div>
-        <div>
-          <span class="tag live">Yaklaşan</span>
-          <h3>Kariyer Sohbeti</h3>
-          <p>Üyelerimizin ve konuklarımızın katılımıyla, öğrencilere yönelik bir sohbet etkinliği.</p>
-          <div class="meta"><span>Saat 19:30</span><span>Yer duyurulacak</span></div>
-        </div>
-      </article>
+      </div>
+      <div class="price vis reveal" data-d="1">
+        <span class="price-lbl">Bir öğrencinin bursu</span>
+        <div class="price-val"><span data-bind="burs.tutar">3.000</span><small>TL</small></div>
+        <p class="price-strong">Bursiyer sayımızı bağışçılarımızla birlikte artırıyoruz.</p>
+        <p>Biliyoruz, bu tutar tek başına yetmiyor. Büyüdükçe ilk artıracağımız kalem bu.</p>
+        <a class="btn btn-white" href="bagis.html?tur=burs">Bir bursa ortak ol <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
     </div>
+    <ol class="tl">
+      <li class="reveal"><b>Formu doldur</b><span>Kendini ve eğitim hayatını bize anlat.</span></li>
+      <li class="reveal" data-d="1"><b>Başvurun değerlendirilir</b><span>Yönetim Kurulumuz başvuruları inceler, değerlendirme kriterlerini sana e-postayla iletir.</span></li>
+      <li class="reveal" data-d="2"><b>Sonucu öğren</b><span>Sonucu sana e-postayla bildiririz.</span></li>
+      <li class="reveal" data-d="3"><b>Bursun başlar</b><span>Kabul edilirsen ödeme ve sonraki adımlar için sana ulaşırız.</span></li>
+    </ol>
   </div>
 </section>
 
-<section>
+<!-- ================= ŞEFFAFLIK ================= -->
+<section class="ed" id="seffaflik">
   <div class="wrap">
-    <div class="dark-box donate reveal">
+    <div class="rules-head reveal">
       <div>
-        <h2>Bir gencin hikâyesine <em>bir sayfa da sen yaz</em></h2>
-        <p>Bir burs, yarım kalmak üzere olan bir hayale devam etme cesareti verebilir. Bağışın bursa, materyale ya da etkinliğe gider. İstersen hangisine gideceğini bile sen seçebilirsin.</p>
+        <h2>Şeffaflığı <em>dört kuralla</em> uyguluyoruz</h2>
       </div>
-      <div class="side">
-        <div class="chips" data-chips="#donateLink" role="group" aria-label="Bağış türü">
-          <button type="button" class="chip on" aria-pressed="true" data-val="burs">Burs</button>
-          <button type="button" class="chip" aria-pressed="false" data-val="materyal">Materyal</button>
-          <button type="button" class="chip" aria-pressed="false" data-val="etkinlik">Etkinlik</button>
-        </div>
-        <a class="btn btn-white magnetic" id="donateLink" href="bagis.html?tur=burs">Bağış yap <span class="arrow">↗</span></a>
+      <a class="more" href="seffaflik.html">Daha fazla göster <span class="arrow">→</span></a>
+    </div>
+    <ol class="rules-list">
+      <li class="reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></i><h3>Kayıt altında</h3><p>Aldığımız her bağışı ve yaptığımız her harcamayı kaydediyoruz.</p></li>
+      <li class="reveal" data-d="1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5l2 2 4-4"/></svg></i><h3>Gerekçeli</h3><p>Burs ve destek kararlarımızın gerekçesini başvuru sahipleriyle paylaşırız.</p></li>
+      <li class="reveal" data-d="2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8.5 16v-4M12.5 16V8M16.5 16v-6"/></svg></i><h3>Her yıl rapor</h3><p>Faaliyet raporumuzu ve gelir-gider tablomuzu her yıl yayımlarız.</p></li>
+      <li class="reveal" data-d="3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5v.4"/><path d="M12 17h.01"/></svg></i><h3>Soruya cevap</h3><p>Merak ettiğini sor; her soruyu yanıtlarız.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= BAĞIŞ =================
+     Tam genişlik, eğik kenarlı kırmızı bant. -->
+<section id="bagis" class="gv">
+  <div class="wrap gv-in">
+    <div class="gv-main reveal">
+      <h2>Bir gencin hikâyesine <em>bir sayfa da sen yaz</em></h2>
+      <p>Bir burs, yarım kalmak üzere olan bir eğitimi kurtarabilir. Bağışın bursa, ders materyaline ya da etkinliğe gider; hangisine gideceğini sen seçersin.</p>
+      <div class="chips" data-chips="#donateLink" role="group" aria-label="Bağış türü">
+        <button type="button" class="chip on" aria-pressed="true" data-val="burs">Burs</button>
+        <button type="button" class="chip" aria-pressed="false" data-val="materyal">Materyal</button>
+        <button type="button" class="chip" aria-pressed="false" data-val="etkinlik">Etkinlik</button>
       </div>
+      <div class="gv-ctas">
+        <a class="btn btn-white" id="donateLink" href="bagis.html?tur=burs">Bağış yap <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="more" href="bagis.html">Daha fazla göster <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <!-- Hedef data/site.json → burs ve istatistik.bursiyer bölümünden gelir; yüzde ve kalan otomatik hesaplanır -->
+    <div class="give give-goal reveal" data-d="1" data-impact>
+      <p class="give-term" data-bind="burs.donem">2026 güz dönemi</p>
+      <div class="gf-count"><b data-bind="istatistik.bursiyer">7</b><span>/ <span data-bind="burs.hedef">20</span> burs</span></div>
+      <!-- Uçuş çizgisi: kırmızı kısım mevcut bursiyerler, taralı kısım seçtiğin burslar; anka ucunda uçar -->
+      <div class="fly" data-bind-ring="burs.yuzde" style="--p:35;--a:0" role="img" aria-label="Burs hedefi ilerlemesi">
+        <span class="fly-fill"></span><span class="fly-add"></span>
+        <img class="fly-bird" src="assets/anka-bird.svg" alt="">
+      </div>
+      <p class="gf-q">Kaç bursa ortak olmak istersin?</p>
+      <div class="gf-chips" role="group" aria-label="Burs sayısı">
+        <button type="button" class="chip" aria-pressed="false" data-adet="1">1</button>
+        <button type="button" class="chip" aria-pressed="false" data-adet="2">2</button>
+        <button type="button" class="chip" aria-pressed="false" data-adet="3">3</button>
+        <button type="button" class="chip" aria-pressed="false" data-adet="5">5</button>
+      </div>
+      <p class="gf-out" aria-live="polite">Hedefe ulaşmak için <span data-bind="burs.kalan">13</span> burs kaldı. Bir burs <span data-bind="burs.tutar">3.000</span> TL.</p>
+      <a class="btn btn-red gf-go" href="bagis.html?tur=burs">Bursa ortak ol <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="reveal">Rakamlarla <em>Kızılanka</em></h2>
-      <p class="reveal" data-d="1">Bu sayıları her dönem güncelleyeceğiz. Gelir ve giderin dökümü <a class="accent" style="font-weight:700;border-bottom:1.5px solid" href="seffaflik.html">Şeffaflık sayfasında.</a></p>
+<!-- ================= SIKÇA SORULANLAR =================
+     Cevaplar Burs ve Üye Ol sayfalarındaki sorulardan alınmıştır. -->
+<section class="ed" id="sss">
+  <div class="wrap ed-split">
+    <div class="ed-split-head reveal">
+      <h2>Aklına takılan <em>bir şey</em> mi var?</h2>
+      <a class="more" href="#iletisim">Bize yaz <span class="arrow">→</span></a>
     </div>
-    <!-- Sayılar data/site.json → istatistik bölümünden gelir -->
-    <div class="stats">
-      <div class="stat reveal"><div class="val"><span data-count="3" data-bind="istatistik.proje">0</span><sup>+</sup></div><div class="lbl">Hayata geçen proje</div></div>
-      <div class="stat reveal" data-d="1"><div class="val"><span data-count="54" data-bind="istatistik.uye">0</span><sup>+</sup></div><div class="lbl">Topluluk üyesi</div></div>
-      <div class="stat reveal" data-d="2"><div class="val"><span data-count="1" data-bind="istatistik.etkinlik">0</span><sup>+</sup></div><div class="lbl">Birlikte yaşadığımız etkinlik</div></div>
-      <div class="stat reveal" data-d="3"><div class="val"><span data-count="7" data-bind="istatistik.bursiyer">0</span><sup>+</sup></div><div class="lbl">Bursiyer</div></div>
+    <div class="faq qa reveal" data-d="1">
+      <details><summary>Kimler bursa başvurabilir?</summary><div class="ans">Şimdilik belirli bir kriter listemiz yok. Başvurunu aldıktan sonra değerlendirme kriterlerimizi sana e-postayla ileteceğiz. Emin olamadığın bir nokta varsa bize yaz.</div></details>
+      <details><summary>Kimler üye olabilir?</summary><div class="ans">Derneğimizin amaç ve ilkelerini benimseyen, bu doğrultuda çalışmayı kabul eden ve fiil ehliyetine sahip herkes üye olabilir. Yabancı uyruklu adaylar için Türkiye’de yerleşme hakkına sahip olmak gerekir.</div></details>
+      <details><summary>Katkı payı ne kadar, nasıl ödenir?</summary><div class="ans">Aylık 500 TL. Başvurunu tamamladıktan sonra ödeme sayfasındaki banka bilgileriyle havale/EFT yapabilirsin. Tutarı tüzüğümüze göre Yönetim Kurulu belirler.</div></details>
+      <details><summary>Katkı payım nereye harcanıyor?</summary><div class="ans">Burslara, materyal desteklerine, etkinliklere ve derneğin işleyişine. Gelirlerimizi ve giderlerimizi Şeffaflık sayfamızda dönem dönem yayımlayacağız.</div></details>
+      <details><summary>Başvurumda verdiğim bilgiler kimlerle paylaşılır?</summary><div class="ans">Bilgilerin yalnızca başvurunu değerlendirenlerle paylaşılır ve KVKK’ya uygun saklanır.</div></details>
     </div>
   </div>
 </section>
 
-<section class="partners-sec">
-  <div class="wrap">
-    <div class="partners reveal">
-      <div class="eyebrow">Dahil olduğumuz topluluklar</div>
-      <div class="partner-marquee">
-        <div class="partner-track">
-          <ul class="partner-logos">
-        <li><a href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener"><img src="assets/partners/elevenlabs-logo-white.svg" alt="ElevenLabs Impact Program" loading="lazy"></a></li>
-        <li><a href="https://goodstack.io" target="_blank" rel="noopener"><img class="mono" src="assets/partners/goodstack.svg" alt="Goodstack" loading="lazy"></a></li>
-        <li><a href="https://www.techsoup.org" target="_blank" rel="noopener"><img src="assets/partners/techsoup.svg" alt="TechSoup" loading="lazy"></a></li>
-        <li><a href="https://openai.com" target="_blank" rel="noopener"><img class="padded" src="assets/partners/openai.svg" alt="OpenAI" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener"><img src="assets/partners/elevenlabs-logo-white.svg" alt="ElevenLabs Impact Program" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://goodstack.io" target="_blank" rel="noopener"><img class="mono" src="assets/partners/goodstack.svg" alt="Goodstack" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://www.techsoup.org" target="_blank" rel="noopener"><img src="assets/partners/techsoup.svg" alt="TechSoup" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://openai.com" target="_blank" rel="noopener"><img class="padded" src="assets/partners/openai.svg" alt="OpenAI" loading="lazy"></a></li>
-          </ul>
-          <ul class="partner-logos" aria-hidden="true">
-        <li><a tabindex="-1" href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener"><img src="assets/partners/elevenlabs-logo-white.svg" alt="ElevenLabs Impact Program" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://goodstack.io" target="_blank" rel="noopener"><img class="mono" src="assets/partners/goodstack.svg" alt="Goodstack" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://www.techsoup.org" target="_blank" rel="noopener"><img src="assets/partners/techsoup.svg" alt="TechSoup" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://openai.com" target="_blank" rel="noopener"><img class="padded" src="assets/partners/openai.svg" alt="OpenAI" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://elevenlabs.io/impact-program" target="_blank" rel="noopener"><img src="assets/partners/elevenlabs-logo-white.svg" alt="ElevenLabs Impact Program" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://goodstack.io" target="_blank" rel="noopener"><img class="mono" src="assets/partners/goodstack.svg" alt="Goodstack" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://www.techsoup.org" target="_blank" rel="noopener"><img src="assets/partners/techsoup.svg" alt="TechSoup" loading="lazy"></a></li>
-        <li><a tabindex="-1" href="https://openai.com" target="_blank" rel="noopener"><img class="padded" src="assets/partners/openai.svg" alt="OpenAI" loading="lazy"></a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="partner-note">Kızılanka, Google for Nonprofits programının bir katılımcısıdır ve Claude for Nonprofits aracılığıyla Claude kullanır.</p>
+<!-- ================= İLETİŞİM ================= -->
+<section class="section-white ed" id="iletisim">
+  <div class="wrap ed-split">
+    <div class="ed-split-head reveal">
+      <h2>Bize <em>yaz</em></h2>
+      <p>Bir sorun, bir fikrin ya da birlikte yapmak istediğin bir şey mi var? Yaz, yanıtlayalım.</p>
+      <a class="more" href="iletisim.html">Daha fazla göster <span class="arrow">→</span></a>
     </div>
+    <ul class="ct reveal" data-d="1">
+      <li><a href="mailto:info@kizilanka.com"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></i><span><small>E-posta</small><b>info@kizilanka.com</b></span><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="tel:+905062550002"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.6 6.6l1.4-2.3 4.5 1.8V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5z"/></svg></i><span><small>Telefon</small><b>+90 506 255 00 02</b></span><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="https://www.instagram.com/kizilankader" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></i><span><small>Instagram</small><b>@kizilankader</b></span><span class="arrow" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://x.com/kizilankader" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5z"/><path d="M19.5 4l-6.6 7.4M4.5 20l6.6-7.4"/></svg></i><span><small>X</small><b>@kizilankader</b></span><span class="arrow" aria-hidden="true">↗</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap finale-in reveal">
+    <div>
+      <h2>Bu topluluğun <em>parçası</em> olmak ister misin?</h2>
+      <p>Başvurunu gönder; Yönetim Kurulumuz en geç otuz gün içinde yanıt verir.</p>
+    </div>
+    <a class="btn btn-red finale-btn" href="uye-ol.html">Aramıza katıl <span class="arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
 </main>
-<script src="js/main.js?v=7" defer></script>
+<script src="js/main.js?v=70" defer></script>
 </body>
 </html>
